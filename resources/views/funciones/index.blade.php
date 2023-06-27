@@ -25,8 +25,8 @@
                                             <th scope="col" class="px-6 py-4">ID</th>
                                             <th scope="col" class="px-6 py-4">Titulo</th>
                                             <th scope="col" class="px-6 py-4">Descripcion</th>
-                                            <th scope="col" class="px-10 py-4">Fecha</th>
-                                            <th scope="col" class="px-6 py-4">Hora</th>
+                                            <th scope="col" class="px-10 py-4">Fecha de la funcion</th>
+                                            <th scope="col" class="px-6 py-4">Horario de la funcion</th>
                                             <th scope="col" class="px-6 py-4">Imagen</th>
                                             <th scope="col" class="px-6 py-4">Numero de Reservas</th>
                                             <th scope="col" class="px-6 py-4">Acciones</th>
@@ -49,15 +49,19 @@
                                                     <td class="px-6 py-4">{{ $funcion->hora }}</td>
                                                     <td class="px-6 py-4">
                                                         <img src="{{ asset('storage') . '/' . $funcion->imagen }}"
-                                                            alt="Picture Image" width="100">
+                                                            alt="Imagen de la película" width="100">
                                                     </td>
                                                     <td class="px-6 py-4">{{ $funcion->numero_reservas }}</td>
                                                     <td class="px-6 py-4">
                                                         <div class="flex justify-center items-center">
+                                                            <!--Ver Funcion -->
+                                                            <a href="{{ route('Funciones.show', $funcion->id) }}"
+                                                                class="mr-3 rounded bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4">Ver
+                                                                Detalles</a>
                                                             <!-- Editar -->
                                                             <a href="{{ route('Funciones.edit', $funcion->id) }}"
                                                                 class="rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4">Editar
-                                                                Ficha</a>
+                                                                Funcion</a>
                                                             <!-- Borrar -->
                                                             <form
                                                                 action="{{ route('Funciones.destroy', $funcion->id) }}"

@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col">
                         <x-input id="name" class="block mt-1 w-full" type="text" name="name"
-                            :value="old('name')" required autofocus autocomplete="name" />
+                            :value="old('name')" required autofocus autocomplete="name" placeholder="Ingrese su Nombre de usuario" />
                     </div>
                 </div>
                 <div class="row">
@@ -50,7 +50,7 @@
                 <div class="row">
                     <div class="col">
                         <x-input id="email" class="block mt-1 w-full" type="email" name="email"
-                            :value="old('email')" aria-placeholder="Ingrese su correo E" required autocomplete="username" />
+                            :value="old('email')" placeholder="Ingrese su Correo electronico" required autocomplete="username" />
                     </div>
                 </div>
                 <div class="row">
@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="col">
                         <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
-                            autocomplete="new-password" />
+                            autocomplete="new-password" placeholder="Ingrese su contraseña"/>
                     </div>
                 </div>
                 <div class="row">
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col">
                         <x-input id="password_confirmation" class="block mt-1 w-full" type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+                            name="password_confirmation" required autocomplete="new-password" placeholder="Ingrese su contraseña nuevamente"/>
                     </div>
                 </div>
                 <div class="row">

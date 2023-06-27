@@ -24,8 +24,10 @@ Route::get('/Contacto', function () {
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/Funciones', FuncionController::class);
+    
 
     Route::delete('/Funciones/{funcion}', 'FuncionController@destroy')->name('Funciones.destroy');
+
 
     Route::get('/Cartelera', function () {
         return view('cartelera');

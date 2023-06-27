@@ -53,7 +53,8 @@ class FuncionController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $funcion = Funcion::findOrFail($id);
+        return view('Funciones.show', compact('funcion'));
     }
 
     /**
