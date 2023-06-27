@@ -1,0 +1,322 @@
+#formulario {
+    border: none;
+    background: rgba(77, 126, 133, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    width: 607px;
+    height: 638px;
+    border-radius: 16px;
+    margin-top: 1.5cm;
+    box-sizing: border-box;
+    opacity: 80%;
+}
+
+
+#formulario a {
+    text-decoration: none;
+    color: rgb(32, 100, 123)
+}
+
+#formularioRegistro a {
+    text-decoration: none;
+    color: rgb(32, 100, 123)
+}
+
+#formularioRegistro {
+    border: none;
+    background: rgba(77, 126, 133, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    width: 607px;
+    height: 720px;
+    border-radius: 16px;
+    margin-top: 0.5cm;
+    margin-left: 30%;
+    margin-right: 30%;
+    box-sizing: border-box;
+    opacity: 80%;
+}
+.textUnder {
+    padding-left: 120px;
+    color: white;
+    font-size: 24px;
+}
+
+#navbar {
+    overflow: hidden;
+    background: rgba(102, 165, 173, 0.5);
+    position: sticky;
+    top: 0;
+    font-family: 'Inter';
+    font-size: 24px;
+}
+
+#navbar img {
+    position: absolute;
+    margin-left: 0.5cm;
+    margin-right: 0.5cm;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px;
+    text-decoration: none;
+    font-size: 24px;
+}
+body {
+    background: linear-gradient(180deg, #ECFBFF 0%, rgba(91, 209, 239, 0.7) 100%);
+}
+
+.MovieSelect {
+    text-align: center;
+    font-size: 42px;
+}
+
+.IngresarPelicula {
+    padding-left: 40%;
+    padding-right: 40%;
+}
+
+.IngresarPelicula input {
+    border-radius: 10px;
+    background: #66A5AD;
+    color: white;
+    width: 350px;
+    height: 50px;
+    border: none;
+}
+
+.IngresarPelicula input:hover {
+    transition: .5s;
+    box-shadow: 0px 6px 6px #477378;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid;
+    width: 90%;
+    font-size: 23px;
+    margin-left: 2cm;
+    background-color: #eaeaea;
+}
+
+th {
+    border: 2px solid;
+    text-align: center;
+    padding: 8px;
+}
+
+td {
+    border: 1px solid;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    border: 1px solid;
+}
+
+
+.bubble {
+    border-radius: 50%;
+    background: white;
+    opacity: .2;
+    position: absolute;
+    bottom: 0;
+    animation: bubbles 3s linear infinite;
+}
+
+.bubble:nth-child(1) {
+    width: 250px;
+    height: 250px;
+    left: 1%;
+    animation-duration: 5s;
+}
+
+.bubble:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    left: 12%;
+    animation-duration: 6s;
+}
+
+.bubble:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    left: 20%;
+    animation-duration: 8s;
+}
+
+.bubble:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    left: 18%;
+    animation-duration: 3s;
+}
+
+.bubble:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    left: 80%;
+    animation-duration: 6s;
+}
+
+.bubble:nth-child(6) {
+    width: 120px;
+    height: 120px;
+    left: 72%;
+    animation-duration: 2s;
+}
+
+.bubble:nth-child(7) {
+    width: 40px;
+    height: 40px;
+    left: 74%;
+    animation-duration: 8s;
+}
+
+.bubble:nth-child(8) {
+    width: 100px;
+    height: 100px;
+    left: 13%;
+    animation-duration: 2s;
+}
+
+.bubble:nth-child(9) {
+    width: 110px;
+    height: 110px;
+    left: 77%;
+    position: fixed;
+    animation-duration: 4s;
+}
+
+.bubble:nth-child(10) {
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    left: 86%;
+    animation-duration: 8s;
+}
+
+
+@keyframes bubbles {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .4;
+    }
+
+    100% {
+        bottom: 80vh;
+        opacity: 0;
+    }
+
+}
+
+#formulario form {
+    text-align: center;
+    color: white;
+}
+
+#formularioRegistro form {
+    text-align: center;
+    color: white;
+}
+
+label p{
+    padding: 10px;
+}
+
+#formularioRegistro text {
+    margin-left: 5px;
+}
+
+#formulario text {
+    margin-left: 5px;
+}
+
+#formularioRegistro input {
+    width: 468px;
+    height: 55px;
+    border-radius: 15px;
+    border: 1px;
+    margin: 13px;
+}
+
+#formularioRegistro button {
+    width: 468px;
+    height: 55px;
+    border-radius: 15px;
+    border: 1px;
+    position: relative;
+    margin: 2px;
+}
+
+input:focus{
+    outline: rgb(36, 63, 87) solid 3px;
+}
+
+#formulario input {
+    width: 468px;
+    height: 55px;
+    border-radius: 15px;
+    border: 0;
+    padding: 10px;
+}
+
+#formulario button {
+    width: 468px;
+    height: 55px;
+    border-radius: 15px;
+    border: 0;
+}
+
+input button {
+    outline: rgb(36, 63, 87) solid 3px;
+}
+
+body {
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 100px;
+    margin-bottom: 10%;
+}
+.TextInput{
+    padding-top: 4cm;
+    text-align: center;
+    padding-left: 1px;
+}
+
+.TextInput input{
+    border-radius: 11px;
+    width: 293px;
+    height: 50px;}
+
+#fichaPelicula {
+    border: 1px solid;
+    width: 1182px;
+    height: 707px;
+    background: #FFFFFF;
+    margin: auto;
+}
+
+.fichaItem {
+    width: 311px;
+    height: 705.5px;
+    background: #b8b8b8;
+}
+
+.fichaFoto {
+    width: 281px;
+    height: 378px;
+    border: 1px solid;
+    margin-left: 15px;
+    background: #477378;
+}

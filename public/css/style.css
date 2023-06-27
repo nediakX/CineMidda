@@ -1,0 +1,194 @@
+footer {
+    background-color: #003B46;
+    color: white;
+    font-family: Inter;
+
+}
+body {
+    background: #C4DFE6;
+}
+
+.formSuggestions {
+    box-sizing: border-box;
+    width: 773px;
+    height: 800px;
+    left: 324px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 3px solid rgba(0, 59, 70, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    margin: 0 auto;
+}
+img{
+    padding: 6px;
+}
+
+.formSuggestions input{
+    padding: 1px 10px;
+
+}
+
+input:focus{
+    outline: rgb(36, 63, 87) solid 3px;
+}
+
+textarea:focus{
+    outline: rgb(36, 63, 87) solid 3px;
+
+}
+
+body {
+    font-family: Jura;
+}
+
+.formInside {
+    margin-top: 1cm;
+    text-align: center;
+}
+
+#form {
+    margin-left: 1cm;
+    font-size: 24px;
+}
+
+
+#form input {
+    width: 325px;
+    border-radius: 15px;
+    border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+textarea {
+    height: 220px;
+    position: static;
+    border-radius: 15px;
+    border-color: transparent;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+#enviar {
+    background: #003B46;
+    color: white;
+}
+
+#navbar {
+    background: rgba(102, 165, 173, 0.5);
+    position: sticky;
+    top: 0;
+    font-family: Inter;
+    overflow: hidden;
+}
+
+#navbar img {
+    display: flex;
+}
+
+#ficha {
+    height: 520px;
+    width: 1000px;
+    margin: auto;
+    border-radius: 15px;
+    background-color: rgba(0, 59, 70, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#imagenFicha {
+    position: relative;
+    border: 3px solid white;
+    top: 1.5cm;
+    left: 1cm;
+    background-color: grey;
+    height: 400px;
+    width: 280px;
+}
+
+#datosFicha {
+
+    position: absolute;
+    left: 8cm;
+    height: 260px;
+    width: 610px;
+    color: white;
+}
+
+.Funcion1 {
+    border: 1px solid black;
+    height: 450px;
+}
+
+.Funcion2 {
+    border: 1px solid black;
+    height: 450px;
+    width: 350px;
+
+}
+
+#reservaButton input {
+    color: white;
+    font-style: normal;
+    position: absolute;
+    left: 21cm;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: #003B46;
+}
+
+.cantidadTotal {
+    font-style: normal;
+    position: absolute;
+    left: 28cm;
+    bottom: 6cm;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    background-color: #f2f2f2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.totalReservas {
+    color: black;
+    font-size: 34px;
+    margin-left: 0.5cm;
+    margin-top: 0.7cm;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 25px;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+#navbar button{
+    font-size: 25px;
+    background-color: #d90000;
+    float: right;
+    color: white;
+    margin-top: 23px;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.iconMain {
+    font-family: 'Ink Free';
+    font-style: normal;
+    font-size: 64px;
+    line-height: 79px;
+}
+
+.bottom {
+    margin-left: 1cm;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    margin-right: 0.5cm;
+}
