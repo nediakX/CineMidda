@@ -20,12 +20,31 @@
                         </div>
                         <div>
                             @if ($funcion->imagen)
-                                <img src="{{ asset('storage/' . $funcion->imagen) }}" alt="Imagen de la función">
-
+                                <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función"
+                                    width="520">
                             @else
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
                         </div>
+                        <form action="{{ route('Funciones.destroy', $funcion->id) }}" method="POST"
+                            class="formEliminar" data-titulo="{{ $funcion->titulo }}">
+                            @csrf
+                            @method('DELETE')
+                            <td>
+                                <tr>
+                                    <a href="{{ route('Funciones.index') }}"
+                                        class="ml-2 rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4">Volver</a>
+                                </tr>
+                                <tr>
+                                    <a href="{{ route('Funciones.edit', $funcion->id) }}"
+                                        class="ml-3 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar
+                                        Funcion</a></tr>
+                                <tr>
+                                    <button type="submit"
+                                        class="ml-3 rounded bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Eliminar
+                                        Funcion</button></tr>
+                            </td>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,8 @@
                             </div>
 
                             <div class="mb-4">
-                                <img src="/imagen/{{ $funcion->imagen }}" id="imagenSeleccionada" width="200px">
+                                <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
+                                alt="Imagen de la película" width="300" id="imagenSeleccionada">
                             </div>
 
                             <div class="mb-4">

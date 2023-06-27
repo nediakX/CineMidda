@@ -10,15 +10,23 @@ use Illuminate\Support\Facades\DB;
 
 class FuncionController extends Controller
 {
+    public function showWelcome()
+    {
+        $funciones = Funcion::orderBy('fecha', 'asc')->take(2)->get();
+        return view('welcome', compact('funciones'));
+    }
+
+
+
     /**
      * Display a listing of the resource.
      */
 
-     public function index(Request $request)
-     {
-         $funciones = Funcion::orderBy('fecha')->paginate(5); // Ordenar por fecha ascendente
-         return view('funciones.index', compact('funciones'));
-     }
+    public function index(Request $request)
+    {
+        $funciones = Funcion::orderBy('fecha')->paginate(5); // Ordenar por fecha ascendente
+        return view('funciones.index', compact('funciones'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -39,7 +47,7 @@ class FuncionController extends Controller
 
         $funcion = $request->all();
         if ($imagen = $request->file('imagen')) {
-            $rutaGuardarImg = 'imagen/';
+            $rutaGuardarImg = public_path('storage/imagen/');
             $imagenFuncion = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenFuncion);
             $funcion['imagen'] = $imagenFuncion;

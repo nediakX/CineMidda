@@ -20,7 +20,7 @@
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                             <div class="overflow-hidden">
                                 <table class="min-w-full text-left text-sm font-light">
-                                    <thead class="border-b font-medium dark:border-neutral-500">
+                                    <thead class="border-b font-medium dark:border-neutral-500 text-center">
                                         <tr>
                                             <th scope="col" class="px-6 py-4">ID</th>
                                             <th scope="col" class="px-6 py-4">Titulo</th>
@@ -41,14 +41,14 @@
                                         @else
                                             @foreach ($funciones as $funcion)
                                                 <tr
-                                                    class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-300">
+                                                    class="text-center border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-300">
                                                     <td class="px-6 py-4">{{ $funcion->id }}</td>
                                                     <td class="px-6 py-4">{{ $funcion->titulo }}</td>
                                                     <td class="px-6 py-4 break-words">{{ $funcion->descripcion }}</td>
                                                     <td class="px-6 py-4">{{ $funcion->fecha }}</td>
                                                     <td class="px-6 py-4">{{ $funcion->hora }}</td>
                                                     <td class="px-6 py-4">
-                                                        <img src="{{ asset('storage') . '/' . $funcion->imagen }}"
+                                                        <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
                                                             alt="Imagen de la película" width="100">
                                                     </td>
                                                     <td class="px-6 py-4">{{ $funcion->numero_reservas }}</td>

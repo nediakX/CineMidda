@@ -21,7 +21,7 @@
 </head>
 
 <body class="antialiased">
-    <div id="navbar">
+    <div id="navbar" class="no-margin">
         @if (Route::has('login'))
             @auth
                 <form method="POST" action="/logout">
@@ -39,55 +39,76 @@
         <a href="/">INICIO</a>
         <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
-    <div class="containter">
-        
-    </div>
-    <div class="container text-left">
-        <div class="row">
-            <h1>¡Bienvenido al portal de cine para la comuna!</h1>
-        </div>
-        <div class="entries">
+    <div class="container main-container" style="margin-top: -100px;">
+
+        <div class="containter">
             <div class="row">
-                <h4>Aquí encontrarás toda la información acerca del cine en el museo interactivo digital - midDA en la
-                    comuna de
-                    Diego de Almagro.</h4>
+                @foreach ($funciones as $funcion)
+                    <div class="col">
+                        <div class="card" style="width: 90%;">
+                            <a href="{{ route('Funciones.show', $funcion->id) }}">
+                                <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función"
+                                    style="width: 100%">
+                                <div class="card-body">
+                                    <h5 class="card-title"
+                                        style="position: absolute; bottom: 200px; left: 10px; color: white; font-size: 30px;">
+                                        {{ $funcion->titulo }}</h5>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+
+        </div>
+        <div class="container text-left">
+            <div class="row">
+                <h1>¡Bienvenido al portal de cine para la comuna!</h1>
+            </div>
+            <div class="entries">
+                <div class="row">
+                    <h4>Aquí encontrarás toda la información acerca del cine en el museo interactivo digital - midDA en
+                        la
+                        comuna de
+                        Diego de Almagro.</h4>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <br>
+
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="mapa">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
+                            width="600" height="450"
+                            style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="col">
+                    <br><br>
+                    <div class="row">
+
+                        <h1>¿Donde Encontrarnos?</h1>
+                        <p></p>
+                        <h2>Estacion Cultural Pueblo Hundido</h2>
+                        <h2>Calle Juan Martinez de Rosa #1103</h2>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <h1>Horarios</h1>
+                        <h2>Jueves desde las 18:00 </h2>
+                        <h2>Viernes desde las 17:30</h2>
+
+                    </div>
+                </div>
             </div>
         </div>
-        <hr>
-    </div>
-          <br>
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                <div class="mapa">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
-                        width="600" height="450"
-                        style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div class="col">
-                <br><br>
-                <div class="row">
-
-                    <h1>¿Donde Encontrarnos?</h1>
-                    <p></p>
-                    <h2>Estacion Cultural Pueblo Hundido</h2>
-                    <h2>Calle Juan Martinez de Rosa #1103</h2>
-
-                </div>
-                <hr>
-                <div class="row">
-                    <h1>Horarios</h1>
-                    <h2>Jueves desde las 18:00 </h2>
-                    <h2>Viernes desde las 17:30</h2>
-
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <br>
     <br>
