@@ -46,25 +46,25 @@
             <h1>Cartelera Mensual!</h1>
         </div>
 
-    <div class="row">
-        <table>
-            <!-- Encabezados de los días de la semana -->
-            <tr>
-                <th>Lunes</th>
-                <th>Martes</th>
-                <th>Miércoles</th>
-                <th>Jueves</th>
-                <th>Viernes</th>
-                <th>Sábado</th>
-                <th>Domingo</th>
+        <div class="row">
+            <table>
+                <!-- Encabezados de los días de la semana -->
+                <tr>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
 
-            </tr>
+                </tr>
 
 
-        </table>
+            </table>
+        </div>
     </div>
-</div>
-<!-- ... -->
+    <!-- ... -->
 
     </div>
     <br>

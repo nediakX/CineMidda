@@ -2,7 +2,6 @@ footer {
     background-color: #003B46;
     color: white;
     font-family: Inter;
-
 }
 
 .formSuggestions {
@@ -15,11 +14,6 @@ footer {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
     margin: 0 auto;
-}
-img{
-    padding: 6px;
-    display: block;
-    margin-top: 0;
 }
 
 .formSuggestions input{
@@ -116,19 +110,6 @@ textarea {
     width: 610px;
     color: white;
 }
-
-.Funcion1 {
-    border: 1px solid black;
-    height: 450px;
-}
-
-.Funcion2 {
-    border: 1px solid black;
-    height: 450px;
-    width: 350px;
-
-}
-
 #reservaButton input {
     color: white;
     font-style: normal;

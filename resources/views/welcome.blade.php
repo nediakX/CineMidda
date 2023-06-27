@@ -52,7 +52,9 @@
                                 <div class="card-body">
                                     <h5 class="card-title"
                                         style="position: absolute; bottom: 200px; left: 10px; color: white; font-size: 30px;">
-                                        {{ $funcion->titulo }}</h5>
+                                        {{ $funcion->titulo }}
+                                    <br>
+                                Reserve Aqui</h5>
                                 </div>
                             </a>
                         </div>
