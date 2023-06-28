@@ -16,6 +16,10 @@ use App\Http\Controllers\FuncionController;
 
 Route::get('/', [FuncionController::class, 'showWelcome'])->name('welcome');
 
+Route::get('/Funciones/create', [FuncionController::class, 'create'])
+    ->name('Funciones.create');
+
+Route::get('/Funciones/{id}', [FuncionController::class, 'show'])->name('Funciones.show');
 
 Route::get('/Contacto', function () {
     return view('contacto');
@@ -24,9 +28,7 @@ Route::get('/Contacto', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/Funciones', FuncionController::class);
 
-
     Route::delete('/Funciones/{funcion}', 'FuncionController@destroy')->name('Funciones.destroy');
-
 
     Route::get('/Cartelera', function () {
         return view('cartelera');
@@ -36,4 +38,3 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         return view('dashboard');
     })->name('dashboard');
 });
-

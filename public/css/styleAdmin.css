@@ -249,6 +249,7 @@ label p{
     border-radius: 15px;
     border: 1px;
     margin: 13px;
+    padding: 10px;
 }
 
 #formularioRegistro button {

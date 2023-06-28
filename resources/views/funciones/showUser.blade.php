@@ -16,12 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/foo.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </head>
 
-<body class="antialiased" style="margin-top: -90px;">
-    <div id="navbar" class="no-margin">
+<body class="antialiased">
+    <div id="navbar">
         @if (Route::has('login'))
             @auth
                 <form method="POST" action="/logout">
@@ -39,77 +39,38 @@
         <a href="/">INICIO</a>
         <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
-    <div class="row">
-        @foreach ($funciones as $funcion)
-            <div class="col" style="height: 800px;">
-                <div class="card">
-                    <a href="{{ route('Funciones.show', $funcion) }}">
-                        <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función" style="height: 900px">
-                        <div class="card-body">
-                            <h5 class="card-title"
-                                style="position: absolute; bottom: 300px; left: 10px; color: white; font-size: 30px;">
-                                {{ $funcion->titulo }}
-                                <br>
-                                Reserve Aqui
-                            </h5>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        @endforeach
-    </div>
-
-    <div class="container main-container">
-
-    </div>
-    <div class="container text-left">
-        <div class="row">
-            <h1>¡Bienvenido al portal de cine para la comuna!</h1>
-        </div>
-        <div class="entries">
+    <div class="container main-container" style="margin-top: 70px;">
+        <div id="ficha">
             <div class="row">
-                <h4>Aquí encontrarás toda la información acerca del cine en el museo interactivo digital - midDA en
-                    la
-                    comuna de
-                    Diego de Almagro.</h4>
+                <div class="mt-5 col-md-4">
+                    <div id="imagenFicha">
+                        @if ($funcion->imagen)
+                            <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función" width="275" height="396">
+                        @else
+                            <p>No se ha cargado una imagen para esta película.</p>
+                        @endif
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div id="datosFicha">
+                        <h1>{{ $funcion->titulo }}</h1>
+                        <p>{{ $funcion->descripcion }}</p>
+                        <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
+                        <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
+                        <div id="reservaButton">
+                            <input type="button" value="RESERVAR">
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="cantidadTotal">
+                <div class="totalReservas">{{ $funcion->numero_reservas }}</div>
+                <div class="mt-4" style="color: white">
+                    Numero de Reservas
+                </div>
+            </div>
+
         </div>
-        <hr>
-    </div>
-    <br>
-
-    <div class="container text-center">
-        <div class="row">
-            <div class="col">
-                <div class="mapa">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
-                        width="600" height="450"
-                        style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div class="col">
-                <br><br>
-                <div class="row">
-
-                    <h1>¿Donde Encontrarnos?</h1>
-                    <p></p>
-                    <h2>Estacion Cultural Pueblo Hundido</h2>
-                    <h2>Calle Juan Martinez de Rosa #1103</h2>
-
-                </div>
-                <hr>
-                <div class="row">
-                    <h1>Horarios</h1>
-                    <h2>Jueves desde las 18:00 </h2>
-                    <h2>Viernes desde las 17:30</h2>
-
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     <br>
     <br>

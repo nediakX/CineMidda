@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Funcion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -62,7 +63,12 @@ class FuncionController extends Controller
     public function show(string $id)
     {
         $funcion = Funcion::findOrFail($id);
-        return view('Funciones.show', compact('funcion'));
+
+        if (Auth::check()) {
+            return view('Funciones.show', compact('funcion'));
+        } else {
+            return view('Funciones.showUser', compact('funcion'));
+        }
     }
 
     /**
