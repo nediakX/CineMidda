@@ -25,7 +25,7 @@
             @auth
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit">Cerrar Sesion</button>
+                    <button type="submit">Salir</button>
                     <a href="{{ url('/dashboard') }}">PANEL DE CONTROL</a>
                 </form>
             @else

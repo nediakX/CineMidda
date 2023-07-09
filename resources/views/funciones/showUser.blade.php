@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Cine MidDA</title>
+    <title>{{ $funcion->titulo }} - Cine MidDA</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,7 +26,7 @@
             @auth
                 <form method="POST" action="/logout">
                     @csrf
-                    <button type="submit">Cerrar Sesion</button>
+                    <button type="submit">Salir</button>
                     <a href="{{ url('/dashboard') }}">PANEL DE CONTROL</a>
                 </form>
             @else
@@ -58,8 +58,9 @@
                         <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
                         <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
                         <div id="reservaButton">
-                            <input type="button" value="RESERVAR">
+                            <a href="{{ route('Funciones.reservar', $funcion->id) }}" class="btn btn-primary">RESERVAR</a>
                         </div>
+
                     </div>
                 </div>
             </div>

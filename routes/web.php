@@ -34,7 +34,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         return view('cartelera');
     })->name('cartelera');
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [FuncionController::class, 'validarReservas'])->name('dashboard'); // Ruta para la vista "dashboard"
+    Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('Funciones.destroyReserva');
+
 });
+
+Route::get('/Funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('Funciones.reservar');
+
+Route::post('/Funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
+
+Route::post('/Funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('Funciones.ingresardatos');
+

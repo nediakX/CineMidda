@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Funcion;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-
-
 
 class FuncionController extends Controller
 {
@@ -17,49 +15,41 @@ class FuncionController extends Controller
         return view('welcome', compact('funciones'));
     }
 
-
-
-    /**
-     * Display a listing of the resource.
-     */
-
     public function index(Request $request)
     {
-        $funciones = Funcion::orderBy('fecha')->paginate(5); // Ordenar por fecha ascendente
+        $funciones = Funcion::orderBy('fecha')->paginate(5);
         return view('funciones.index', compact('funciones'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('funciones.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
-            'titulo' => 'required', 'descripcion' => 'required', 'fecha' => 'required', 'hora' => 'required', 'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024'
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'fecha' => 'required',
+            'hora' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024'
         ]);
 
         $funcion = $request->all();
+
         if ($imagen = $request->file('imagen')) {
             $rutaGuardarImg = public_path('storage/imagen/');
             $imagenFuncion = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenFuncion);
             $funcion['imagen'] = $imagenFuncion;
         }
+
         Funcion::create($funcion);
         return redirect()->route('Funciones.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         $funcion = Funcion::findOrFail($id);
@@ -71,18 +61,12 @@ class FuncionController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $funcion = Funcion::findOrFail($id);
         return view('Funciones.edit', compact('funcion'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $funcion = Funcion::findOrFail($id);
@@ -112,13 +96,73 @@ class FuncionController extends Controller
         return redirect()->route('Funciones.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    public function reservarAsientos($id)
+    {
+        $funcion = Funcion::findOrFail($id);
+        $asientosDisponibles = $funcion->numero_reservas;
+
+        return view('funciones.reservar', compact('funcion', 'asientosDisponibles'));
+    }
+
+    public function ingresarDatos(Request $request)
+    {
+        $funcionid = $request->input('funcionid');
+        $asientos = $request->input('asientos_seleccionados');
+
+        return view('funciones.ingresardatos', compact('funcionid', 'asientos'));
+    }
+
+
+    public function guardarReserva(Request $request, $id)
+    {
+        $funcion = Funcion::findOrFail($id);
+
+        $request->validate([
+            'asientos_seleccionados' => 'required',
+            'nombre' => 'required',
+            'rut' => 'required',
+            'telefono' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $reserva = new Reserva();
+
+        $reserva->funcion_id = $funcion->id;
+        $reserva->asientos = $request->input('asientos_seleccionados');
+        $reserva->nombre = $request->input('nombre');
+        $reserva->rut = $request->input('rut');
+        $reserva->telefono = $request->input('telefono');
+        $reserva->email = $request->input('email');
+
+        $reserva->save();
+
+        $asientosSeleccionados = count(explode(',', $request->input('asientos_seleccionados')));
+        $funcion->numero_reservas -= $asientosSeleccionados;
+        $funcion->save();
+
+        return redirect()->route('Funciones.index')->with('success', 'La reserva se ha guardado exitosamente.');
+    }
+
+    public function validarReservas()
+    {
+        $reservas = Reserva::all();
+
+        return view('dashboard', compact('reservas'));
+    }
+
     public function destroy($id)
     {
         $funcion = Funcion::findOrFail($id);
         $funcion->delete();
         return redirect()->route('Funciones.index');
+    }
+    public function destroyReserva($id)
+    {
+        $reserva = Reserva::findOrFail($id);
+        $funcionId = $reserva->funcion_id;
+
+        $reserva->delete();
+
+        return redirect()->route('dashboard')->with('success', 'La reserva se ha eliminado exitosamente.');
     }
 }

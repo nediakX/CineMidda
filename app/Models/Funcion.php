@@ -10,3 +10,4 @@ class Funcion extends Model
     use HasFactory;
     protected $fillable = ['titulo', 'descripcion', 'fecha', 'hora', 'imagen', 'numero_reservas'];
 }
+
