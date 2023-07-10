@@ -8,6 +8,39 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="p-6">
+                    <form action="{{ route('dashboard') }}" method="GET">
+                        <div class="flex flex-wrap -mx-3 mb-4">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label for="rut"
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">RUT</label>
+                                <input type="text" id="rut" name="rut" placeholder="Buscar por RUT"
+                                    value="{{ request('rut') }}"
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label for="funcion_id"
+                                    class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Función</label>
+                                <select id="funcion_id" name="funcion_id"
+                                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                    <option value="">Todas las funciones</option>
+                                    @foreach ($funciones as $funcion)
+                                        <option value="{{ $funcion->id }}"
+                                            {{ request('funcion_id') == $funcion->id ? 'selected' : '' }}>
+                                            {{ $funcion->titulo }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end">
+                            <button type="submit"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                Buscar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -18,7 +51,7 @@
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Función</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Asientos</th>
+                                Numero de asientos</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Acciones</th>
                         </tr>
@@ -47,7 +80,8 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            @endif
+
+                        @endif
                     </tbody>
 
                 </table>

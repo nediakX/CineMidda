@@ -16,7 +16,8 @@
                             <p class="text-gray-600">{{ $funcion->descripcion }}</p>
                             <p><strong>Fecha de la funcion:</strong> {{ $funcion->fecha }}</p>
                             <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
-                            <p><strong>Número de reservas:</strong> {{ $funcion->numero_reservas }}</p>
+                            <p><strong>Número total de reservas:</strong> {{ $funcion->numero_reservas }}</p>
+                            <p><strong>Asientos disponibles:</strong> {{ $asientosDisponibles }}</p>
                         </div>
                         <div>
                             @if ($funcion->imagen)

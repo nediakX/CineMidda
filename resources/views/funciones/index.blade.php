@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Bienvenido a la Administracion de Funciones') }}
+            {{ __('Bienvenid@ a la Administracion de Funciones!') }}
         </h2>
     </x-slot>
 
@@ -40,7 +40,7 @@
                                             </tr>
                                         @else
                                             @foreach ($funciones as $funcion)
-                                                <tr     
+                                                <tr
                                                     class="text-center border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-300">
                                                     <td class="px-6 py-4">{{ $funcion->id }}</td>
                                                     <td class="px-6 py-4">{{ $funcion->titulo }}</td>

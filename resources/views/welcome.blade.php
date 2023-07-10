@@ -43,17 +43,17 @@
         </div>
         <div class="welcome-container">
             @foreach ($funciones as $funcion)
-                <a href="{{ route('Funciones.show', $funcion) }}">
-                    <div class="welcome-function">
-                        <img class="image" src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
-                            alt="Imagen de la función" style="width: 700px; height: 800px">
-                        <div class="title">{{ $funcion->titulo }}
-                            <br>
-                            Reserve Aqui - Disponibles (16/{{ $funcion->numero_reservas }})
-                        </div>
+            <a href="{{ route('Funciones.show', $funcion) }}">
+                <div class="welcome-function">
+                    <img class="image" src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
+                        alt="Imagen de la función" style="width: 700px; height: 800px">
+                    <div class="title">{{ $funcion->titulo }}
+                        <br>
+                        Reserve Aqui - Disponibles ({{ $funcion->numero_reservas }}/{{ $funcion->asientosDisponibles }})
                     </div>
-                </a>
-            @endforeach
+                </div>
+            </a>
+        @endforeach
         </div>
         <div class="container main-container"</div>
             <div class="container text-left">

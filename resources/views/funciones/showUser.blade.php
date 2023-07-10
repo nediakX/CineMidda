@@ -65,9 +65,9 @@
                 </div>
             </div>
             <div class="cantidadTotal">
-                <div class="totalReservas">{{ $funcion->numero_reservas }}</div>
+                <div class="totalReservas">{{ $asientosDisponibles }}</div>
                 <div class="mt-4" style="color: white">
-                    Numero de Reservas
+                    Asientos Disponibles
                 </div>
             </div>
 

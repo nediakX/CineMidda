@@ -12,6 +12,13 @@ class FuncionController extends Controller
     public function showWelcome()
     {
         $funciones = Funcion::orderBy('fecha', 'asc')->take(2)->get();
+
+        foreach ($funciones as $funcion) {
+            $asientosOcupados = count($this->getAsientosOcupados($funcion->id));
+            $asientosDisponibles = $funcion->numero_reservas - $asientosOcupados;
+            $funcion->asientosDisponibles = $asientosDisponibles;
+        }
+
         return view('welcome', compact('funciones'));
     }
 
@@ -54,10 +61,13 @@ class FuncionController extends Controller
     {
         $funcion = Funcion::findOrFail($id);
 
+        $asientosOcupados = count($this->getAsientosOcupados($id));
+        $asientosDisponibles = $funcion->numero_reservas - $asientosOcupados;
+
         if (Auth::check()) {
-            return view('Funciones.show', compact('funcion'));
+            return view('Funciones.show', compact('funcion', 'asientosDisponibles'));
         } else {
-            return view('Funciones.showUser', compact('funcion'));
+            return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
         }
     }
 
@@ -100,16 +110,60 @@ class FuncionController extends Controller
     {
         $funcion = Funcion::findOrFail($id);
         $asientosDisponibles = $funcion->numero_reservas;
+        $asientosOcupados = $this->getAsientosOcupados($id);
+        $numAsientosReservados = Reserva::where('funcion_id', $id)->count();
 
-        return view('funciones.reservar', compact('funcion', 'asientosDisponibles'));
+
+        return view('funciones.reservar', compact('funcion', 'asientosDisponibles', 'asientosOcupados', 'numAsientosReservados'));
     }
+
+    public function getAsientosOcupados($id)
+    {
+        $reservas = Reserva::where('funcion_id', $id)->get();
+        $asientosOcupados = [];
+
+        foreach ($reservas as $reserva) {
+            $asientos = explode(',', $reserva->asientos);
+            $asientosOcupados = array_merge($asientosOcupados, $asientos);
+        }
+
+        return $asientosOcupados;
+    }
+
 
     public function ingresarDatos(Request $request)
     {
+        $request->validate([
+            'asientos_seleccionados' => 'required',
+        ], [
+            'asientos_seleccionados.required' => 'Por favor, seleccione al menos un asiento.',
+        ]);
         $funcionid = $request->input('funcionid');
         $asientos = $request->input('asientos_seleccionados');
 
         return view('funciones.ingresardatos', compact('funcionid', 'asientos'));
+    }
+
+    public function buscar(Request $request)
+    {
+        $rut = $request->input('rut');
+        $funcionId = $request->input('funcion_id');
+
+        $query = Funcion::query();
+
+        if ($rut) {
+            $query->whereHas('reservas', function ($q) use ($rut) {
+                $q->where('rut', $rut);
+            });
+        }
+
+        if ($funcionId) {
+            $query->where('id', $funcionId);
+        }
+
+        $funciones = $query->orderBy('fecha')->paginate(5);
+
+        return view('funciones.index', compact('funciones'));
     }
 
 
@@ -136,19 +190,32 @@ class FuncionController extends Controller
 
         $reserva->save();
 
-        $asientosSeleccionados = count(explode(',', $request->input('asientos_seleccionados')));
-        $funcion->numero_reservas -= $asientosSeleccionados;
-        $funcion->save();
-
         return redirect()->route('Funciones.index')->with('success', 'La reserva se ha guardado exitosamente.');
     }
 
-    public function validarReservas()
+    public function validarReservas(Request $request)
     {
-        $reservas = Reserva::all();
+        $rut = $request->input('rut');
+        $funcionId = $request->input('funcion_id');
 
-        return view('dashboard', compact('reservas'));
+        $query = Reserva::query();
+
+        if ($rut) {
+            $query->where('rut', $rut);
+        }
+
+        if ($funcionId) {
+            $query->whereHas('funcion', function ($q) use ($funcionId) {
+                $q->where('id', $funcionId);
+            });
+        }
+
+        $reservas = $query->get();
+        $funciones = Funcion::orderBy('fecha')->get();
+
+        return view('dashboard', compact('reservas', 'funciones'));
     }
+
 
     public function destroy($id)
     {

@@ -39,9 +39,15 @@
         <a href="/">INICIO</a>
         <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
+
     <div class="col">
         <div class="container main-container" style="margin-top: 70px;">
             <div class="row">
+                @if ($errors->has('asientos_seleccionados'))
+                    <div class="alert alert-danger">
+                        {{ $errors->first('asientos_seleccionados') }}
+                    </div>
+                @endif
                 <div class="col-md-6 order-md-2">
                     <div class="image-container">
                         <div id="imagenFicha">
@@ -51,7 +57,7 @@
                             @else
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
-                            <h4 class="mt-4 text-center">Pelicula: {{ $funcion->titulo }}</h4> <!-- Agregamos la clase 'text-center' -->
+                            <h4 class="mt-4 text-center">Pelicula: {{ $funcion->titulo }}</h4>
                         </div>
                     </div>
                 </div>
@@ -85,17 +91,24 @@
                                         <tr>
                                             <th>{{ $letrasFila[$fila] }}</th>
                                             @for ($columna = 1; $columna <= $numColumnas; $columna++)
-                                                @if ($numAsiento <= $asientosDisponibles)
-                                                    <td>
-                                                        <div class="asiento disponible"
-                                                            onclick="seleccionarAsiento(this)">
+                                                @php
+                                                    $numAsientoActual = $fila * $numColumnas + $columna;
+                                                    $asientoOcupado = in_array($numAsientoActual, $asientosOcupados);
+                                                @endphp
+                                                <td>
+                                                    @if ($numAsiento <= $asientosDisponibles)
+                                                        <div class="asiento
+                                                            {{ $asientoOcupado ? 'ocupado' : 'disponible' }}
+                                                            {{ $asientoOcupado ? 'no-seleccionable' : '' }}"
+                                                            onclick="seleccionarAsiento(this)"
+                                                            {{ $asientoOcupado ? 'disabled' : '' }}>
                                                             <span>{{ $numAsiento }}</span>
                                                         </div>
-                                                    </td>
-                                                    @php
-                                                        $numAsiento++;
-                                                    @endphp
-                                                @endif
+                                                        @php
+                                                            $numAsiento++;
+                                                        @endphp
+                                                    @endif
+                                                </td>
                                             @endfor
                                         </tr>
                                     @endfor
@@ -138,26 +151,27 @@
 </html>
 <script>
     function seleccionarAsiento(asiento) {
+        if (asiento.classList.contains('ocupado')) {
+            return;
+        }
         asiento.classList.toggle('seleccionado');
-        var numAsiento = asiento.querySelector('span').innerHTML;
+        var numAsiento = parseInt(asiento.querySelector('span').innerHTML);
         var asientosSeleccionados = document.querySelectorAll('.asiento.seleccionado');
         var asientosSeleccionadosContainer = document.getElementById('asientosSeleccionadosContainer');
         asientosSeleccionadosContainer.innerHTML = '';
 
+        var asientosSeleccionadosArray = [];
+
         for (var i = 0; i < asientosSeleccionados.length; i++) {
-            var numAsientoSeleccionado = asientosSeleccionados[i].querySelector('span').innerHTML;
+            var numAsientoSeleccionado = parseInt(asientosSeleccionados[i].querySelector('span').innerHTML);
             var asientoSeleccionado = document.createElement('div');
             asientoSeleccionado.innerHTML = 'Asiento escogido: ' + numAsientoSeleccionado + ' ';
             asientosSeleccionadosContainer.appendChild(asientoSeleccionado);
+
+            asientosSeleccionadosArray.push(numAsientoSeleccionado);
         }
 
         var asientosSeleccionadosInput = document.getElementById('asientosSeleccionadosInput');
-        asientosSeleccionadosInput.value = '';
-
-        for (var i = 0; i < asientosSeleccionados.length; i++) {
-            var numAsientoSeleccionado = asientosSeleccionados[i].querySelector('span').innerHTML;
-            asientosSeleccionadosInput.value += ' - ' + numAsientoSeleccionado;
-        }
-
+        asientosSeleccionadosInput.value = asientosSeleccionadosArray.join(',');
     }
 </script>

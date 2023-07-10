@@ -35,6 +35,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('cartelera');
 
     Route::get('/dashboard', [FuncionController::class, 'validarReservas'])->name('dashboard'); // Ruta para la vista "dashboard"
+
     Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('Funciones.destroyReserva');
 
 });
