@@ -17,7 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.js"></script>
 </head>
 
 <body class="antialiased">
@@ -40,35 +42,15 @@
         <a href="/">INICIO</a>
         <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
-
     <div class="container text-left">
         <div class="row">
-            <h1>Cartelera Mensual!</h1>
+            <h1 style="text-align: center">Cartelera Mensual</h1>
         </div>
 
         <div class="row">
-            <table>
-                <!-- Encabezados de los días de la semana -->
-                <tr>
-                    <th>Lunes</th>
-                    <th>Martes</th>
-                    <th>Miércoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
-
-                </tr>
-
-
-            </table>
+            <div id="calendar"></div>
         </div>
     </div>
-    <!-- ... -->
-
-    </div>
-    <br>
-    <br>
     <br>
     <footer>
         <div class="bottom">
@@ -90,6 +72,37 @@
             <br>
         </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                firstDay: 1,
+                locale: 'es',
+                events: [
+                    @foreach ($funciones as $funcion)
+                        {
+                            title: '{{ $funcion->titulo }}',
+                            start: '{{ $funcion->fecha }}T{{ $funcion->hora }}',
+                            url: '{{ route('Funciones.show', $funcion->id) }}',
+                            image: '{{ asset('storage/imagen/' . $funcion->imagen) }}'
+                        },
+                    @endforeach
+                ],
+                eventRender: function(event, element) {
+                    if (event.image) {
+                        element.find('.fc-title').append('<br><img src="' + event.image + '">');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

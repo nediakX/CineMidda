@@ -273,6 +273,25 @@ textarea {
     line-height: 30px;
     cursor: pointer;
 }
+.fc-title {
+    text-align: center;
+}
+
+.fc-title img {
+    display: block;
+    margin:  auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100px; /* Ajusta el valor según tu preferencia */
+}
+
+#calendar {
+    background-color: rgb(240, 240, 240);
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin-top: 20px;
+}
 
 .seleccionado {
     color: white;

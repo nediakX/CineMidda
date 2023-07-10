@@ -40,7 +40,10 @@ class FuncionController extends Controller
             'descripcion' => 'required',
             'fecha' => 'required',
             'hora' => 'required',
-            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024'
+            'imagen' => 'required|image|mimes:jpeg,png,svg|max:1024',
+            'numero_reservas' => 'required|integer|min:1'
+        ], [
+            'required' => 'El campo :attribute es obligatorio.'
         ]);
 
         $funcion = $request->all();
@@ -55,6 +58,7 @@ class FuncionController extends Controller
         Funcion::create($funcion);
         return redirect()->route('Funciones.index');
     }
+
 
 
     public function show(string $id)
@@ -78,33 +82,45 @@ class FuncionController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $funcion = Funcion::findOrFail($id);
+{
+    $funcion = Funcion::findOrFail($id);
 
-        if ($request->has('titulo')) {
-            $funcion->titulo = $request->input('titulo');
-        }
-
-        if ($request->has('descripcion')) {
-            $funcion->descripcion = $request->input('descripcion');
-        }
-
-        if ($request->has('fecha')) {
-            $funcion->fecha = $request->input('fecha');
-        }
-
-        if ($request->has('hora')) {
-            $funcion->hora = $request->input('hora');
-        }
-
-        if ($request->has('numero_reservas')) {
-            $funcion->numero_reservas = $request->input('numero_reservas');
-        }
-
-        $funcion->save();
-
-        return redirect()->route('Funciones.index');
+    if ($request->has('titulo')) {
+        $funcion->titulo = $request->input('titulo');
     }
+
+    if ($request->has('descripcion')) {
+        $funcion->descripcion = $request->input('descripcion');
+    }
+
+    if ($request->has('fecha')) {
+        $funcion->fecha = $request->input('fecha');
+    }
+
+    if ($request->has('hora')) {
+        $funcion->hora = $request->input('hora');
+    }
+
+    if ($request->has('numero_reservas')) {
+        $funcion->numero_reservas = $request->input('numero_reservas');
+    }
+
+    if ($request->hasFile('imagen')) {
+        $request->validate([
+            'imagen' => 'image|mimes:jpeg,png,svg|max:1024'
+        ]);
+
+        $rutaGuardarImg = public_path('storage/imagen/');
+        $imagenFuncion = date('YmdHis') . "." . $request->file('imagen')->getClientOriginalExtension();
+        $request->file('imagen')->move($rutaGuardarImg, $imagenFuncion);
+        $funcion->imagen = $imagenFuncion;
+    }
+
+    $funcion->save();
+
+    return redirect()->route('Funciones.index');
+}
+
 
     public function reservarAsientos($id)
     {
@@ -143,6 +159,15 @@ class FuncionController extends Controller
 
         return view('funciones.ingresardatos', compact('funcionid', 'asientos'));
     }
+
+    public function cartelera()
+    {
+        $funciones = Funcion::all(); // Obtén todas las funciones desde el modelo Funcion
+
+        return view('cartelera', compact('funciones'));
+    }
+
+
 
     public function buscar(Request $request)
     {
