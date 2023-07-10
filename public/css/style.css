@@ -247,33 +247,45 @@ textarea {
 
 .asiento.no-seleccionable {
     cursor: not-allowed;
-    background-color: rgb(127, 127, 127);
     color: white;
-    clip-path: polygon(0 56%, 15% 56%, 15% 0%, 85% 0%, 85% 57%, 100% 57%, 100% 83%, 84% 83%, 84% 100%, 15% 100%, 15% 82%, 0 82%);
-
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    background-image: url('/icons/asientoocupado.png');
+    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-repeat: no-repeat;
+    margin: 22px;
+    text-align: center;
+    line-height: 30px;
 }
 
 
 .asiento {
+    color: black;
     display: inline-block;
     width: 55px;
     height: 55px;
-    background-color: #e2e2e2;
+    background-image: url('/icons/asiento.png');
+    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-repeat: no-repeat;
     margin: 22px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
 }
 
-.disponible {
-    background-color: #e2e2e2;
-    clip-path: polygon(0 56%, 15% 56%, 15% 0%, 85% 0%, 85% 57%, 100% 57%, 100% 83%, 84% 83%, 84% 100%, 15% 100%, 15% 82%, 0 82%);
-
-}
-
 .seleccionado {
-    background-color: #ff0000;
-    color: #ffffff;
+    color: white;
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    background-image: url('/icons/asientoselect.png');
+    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-repeat: no-repeat;
+    margin: 22px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
 }
 
 .asientoSeleccionadoContainer button {
