@@ -30,7 +30,7 @@
                 <form method="POST" action="/logout">
                     @csrf
                     <button type="submit">Salir</button>
-                    <a href="{{ url('/dashboard') }}">PANEL DE CONTROL</a>
+                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
                 </form>
             @else
                 <a href="{{ route('login') }}">INICIAR SESION</a>

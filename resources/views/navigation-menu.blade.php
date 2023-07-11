@@ -16,16 +16,26 @@
                         {{ __('Pagina de Inicio') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Validar Reservas') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('Funciones.index') }}" :active="request()->routeIs('Funciones.index')">
-                        {{ __('Administrar Funciones') }}
-                    </x-nav-link>
-                </div>
+
+                @auth
+                    @if(auth()->user()->role === 'admin')
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                {{ __('Validar Reservas') }}
+                            </x-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link href="{{ route('Funciones.index') }}" :active="request()->routeIs('Funciones.index')">
+                                {{ __('Administrar Funciones') }}
+                            </x-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link :href="route('administracion-user.index')" :active="request()->routeIs('administracion-user.index')">
+                                {{ __('Control Usuarios') }}
+                            </x-nav-link>
+                        </div>
+                    @endif
+                @endauth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('cartelera')" :active="request()->routeIs('cartelera')">
                         {{ __('Cartelera Mensual') }}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministracionUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuncionController;
 
@@ -31,10 +32,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::delete('/Funciones/{funcion}', 'FuncionController@destroy')->name('Funciones.destroy');
 
     Route::get('/dashboard', [FuncionController::class, 'validarReservas'])->name('dashboard');
-    
+
+    Route::get('/administracion-user', [AdministracionUserController::class, 'index'])->name('administracion-user.index');
+    Route::get('/administracion-user/{id}/edit', [AdministracionUserController::class, 'edit'])->name('administracion-user.edit');
+    Route::put('/administracion-user/{id}', [AdministracionUserController::class, 'update'])->name('administracion-user.update');
+    Route::delete('/administracion-user/{id}', [AdministracionUserController::class, 'destroy'])->name('administracion-user.destroy');
+
 
     Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('Funciones.destroyReserva');
-
 });
 
 Route::get('/Funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('Funciones.reservar');

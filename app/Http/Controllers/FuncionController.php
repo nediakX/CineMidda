@@ -6,6 +6,7 @@ use App\Models\Funcion;
 use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\User;
 
 class FuncionController extends Controller
 {
@@ -59,8 +60,6 @@ class FuncionController extends Controller
         return redirect()->route('Funciones.index');
     }
 
-
-
     public function show(string $id)
     {
         $funcion = Funcion::findOrFail($id);
@@ -69,10 +68,18 @@ class FuncionController extends Controller
         $asientosDisponibles = $funcion->numero_reservas - $asientosOcupados;
 
         if (Auth::check()) {
+            // Verificar el rol del usuario autenticado
+            if (Auth::user()->role === 'user') {
+                // Si el usuario tiene el rol "user", redirige a la vista "showuser" o la que desees
+                return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
+            }
+
+            // Si el usuario tiene otro rol, muestra la vista "Funciones.show" normalmente
             return view('Funciones.show', compact('funcion', 'asientosDisponibles'));
-        } else {
-            return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
         }
+
+        // Si el usuario no está autenticado, muestra la vista "Funciones.showUser"
+        return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
     }
 
     public function edit($id)
@@ -82,44 +89,44 @@ class FuncionController extends Controller
     }
 
     public function update(Request $request, $id)
-{
-    $funcion = Funcion::findOrFail($id);
+    {
+        $funcion = Funcion::findOrFail($id);
 
-    if ($request->has('titulo')) {
-        $funcion->titulo = $request->input('titulo');
+        if ($request->has('titulo')) {
+            $funcion->titulo = $request->input('titulo');
+        }
+
+        if ($request->has('descripcion')) {
+            $funcion->descripcion = $request->input('descripcion');
+        }
+
+        if ($request->has('fecha')) {
+            $funcion->fecha = $request->input('fecha');
+        }
+
+        if ($request->has('hora')) {
+            $funcion->hora = $request->input('hora');
+        }
+
+        if ($request->has('numero_reservas')) {
+            $funcion->numero_reservas = $request->input('numero_reservas');
+        }
+
+        if ($request->hasFile('imagen')) {
+            $request->validate([
+                'imagen' => 'image|mimes:jpeg,png,svg|max:1024'
+            ]);
+
+            $rutaGuardarImg = public_path('storage/imagen/');
+            $imagenFuncion = date('YmdHis') . "." . $request->file('imagen')->getClientOriginalExtension();
+            $request->file('imagen')->move($rutaGuardarImg, $imagenFuncion);
+            $funcion->imagen = $imagenFuncion;
+        }
+
+        $funcion->save();
+
+        return redirect()->route('Funciones.index');
     }
-
-    if ($request->has('descripcion')) {
-        $funcion->descripcion = $request->input('descripcion');
-    }
-
-    if ($request->has('fecha')) {
-        $funcion->fecha = $request->input('fecha');
-    }
-
-    if ($request->has('hora')) {
-        $funcion->hora = $request->input('hora');
-    }
-
-    if ($request->has('numero_reservas')) {
-        $funcion->numero_reservas = $request->input('numero_reservas');
-    }
-
-    if ($request->hasFile('imagen')) {
-        $request->validate([
-            'imagen' => 'image|mimes:jpeg,png,svg|max:1024'
-        ]);
-
-        $rutaGuardarImg = public_path('storage/imagen/');
-        $imagenFuncion = date('YmdHis') . "." . $request->file('imagen')->getClientOriginalExtension();
-        $request->file('imagen')->move($rutaGuardarImg, $imagenFuncion);
-        $funcion->imagen = $imagenFuncion;
-    }
-
-    $funcion->save();
-
-    return redirect()->route('Funciones.index');
-}
 
 
     public function reservarAsientos($id)
