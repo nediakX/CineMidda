@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
-                    <form action="{{ route('dashboard') }}" method="GET">
+                    <form action="{{ route('dashboard') }}" method="GET" id="filter-form">
                         <div class="flex flex-wrap -mx-3 mb-4">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="rut"
@@ -36,6 +36,10 @@
                             <button type="submit"
                                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                 Buscar
+                            </button>
+                            <button type="button" onclick="limpiarFiltro()"
+                                class="ml-2 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                Limpiar filtro
                             </button>
                         </div>
                     </form>
@@ -83,10 +87,37 @@
 
                         @endif
                     </tbody>
-
                 </table>
-
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#rut').on('input', function() {
+                var rut = $(this).val().trim();
+                if (rut.length > 0) {
+                    filterByRutPrefix(rut);
+                }
+            });
+        });
+
+        function filterByRutPrefix(rut) {
+            var tableRows = $('.min-w-full tbody tr');
+            tableRows.hide();
+            tableRows.each(function() {
+                var currentRut = $(this).find('td:nth-child(2)').text();
+                if (currentRut.startsWith(rut)) {
+                    $(this).show();
+                }
+            });
+        }
+
+        function limpiarFiltro() {
+            document.getElementById('rut').value = '';
+            document.getElementById('funcion_id').selectedIndex = 0;
+            document.getElementById('filter-form').submit();
+        }
+    </script>
 </x-app-layout>

@@ -62,14 +62,13 @@ body {
 .welcome-container {
     display: flex;
     justify-content: center;
+
 }
 
 .welcome-function {
     width: 700px;
     height: 630px;
-    margin: 20px;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin-left: 40px;
     transition: transform 0.3s;
     clip-path: inset(0 0 14% 0);
 }

@@ -88,8 +88,8 @@
                     <div class="col"> Apellido</div>
                 </div>
                 <div class="row">
-                    <div class="col"> <input name="nombre" type="text" id="name" placeholder="Escriba su nombre"
-                            required autofocus></div>
+                    <div class="col"> <input name="nombre" type="text" id="name"
+                            placeholder="Escriba su nombre" required autofocus></div>
                     <div class="col"> <input name="apellido" type="text" id="lastname"
                             placeholder="Escriba su apellido" required></div>
                 </div>
@@ -114,7 +114,8 @@
                 <div class="Submit" style="margin-left: 5cm;">
                     <div class="g-recaptcha" data-sitekey="127.0.0.1"></div>
                     <br />
-                    <input id="enviar" type="submit" value="Enviar" style="width: 137px;
+                    <input id="enviar" type="submit" value="Enviar"
+                        style="width: 137px;
                     height: 48px; margin-left: 2.5cm; border-radius: 9px;">
                 </div>
 
@@ -132,7 +133,8 @@
                 <a href="https://web.facebook.com/MidDA2022">
                     <img src="/icons/facebook.png" alt="" style="float: right;"> </a>
                 <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!">
-                    <img src="/icons/whatsapp.png" alt="" style="float: right;"></a>
+                    <img src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
+                </a>
                 <br>
                 Correo: correomidda@midda.cl
                 <br>

@@ -45,7 +45,8 @@
                 <div class="mt-5 col-md-4">
                     <div id="imagenFicha">
                         @if ($funcion->imagen)
-                            <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función" width="275" height="396">
+                            <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función"
+                                width="275" height="396">
                         @else
                             <p>No se ha cargado una imagen para esta película.</p>
                         @endif
@@ -58,7 +59,8 @@
                         <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
                         <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
                         <div id="reservaButton">
-                            <a href="{{ route('Funciones.reservar', $funcion->id) }}" class="btn btn-primary">RESERVAR</a>
+                            <a href="{{ route('Funciones.reservar', $funcion->id) }}"
+                                class="btn btn-primary">RESERVAR</a>
                         </div>
 
                     </div>
@@ -84,7 +86,7 @@
                 <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
                         style="float: right;"></a><a
                     href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
-                        src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right;"></a>
+                        src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
                 <br>
                 Correo: correomidda@midda.cl
                 <br>

@@ -114,7 +114,7 @@
                     <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
                             style="float: right;"></a>
                     <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
-                            src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right;"></a>
+                            src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
                     <br>
                     Correo: correomidda@midda.cl
                     <br>
