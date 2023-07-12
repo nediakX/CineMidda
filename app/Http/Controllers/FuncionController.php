@@ -219,7 +219,7 @@ class FuncionController extends Controller
 
         $reserva->save();
 
-        return redirect()->route('Funciones.index')->with('success', 'La reserva se ha guardado exitosamente.');
+        return redirect()->route('funciones.index')->with('success', 'La reserva se ha guardado exitosamente.');
     }
 
     public function validarReservas(Request $request)
