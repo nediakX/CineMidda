@@ -168,7 +168,7 @@ class FuncionController extends Controller
     {
         $funciones = Funcion::all();
 
-        return view('cartelera', compact('funciones'));
+        return view('Cartelera', compact('funciones'));
     }
 
 
