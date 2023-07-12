@@ -23,7 +23,7 @@ Route::get('/Funciones/create', [FuncionController::class, 'create'])
 Route::get('/Funciones/{id}', [FuncionController::class, 'show'])->name('Funciones.show');
 
 Route::get('/contacto', function () {
-    return view('Contacto');
+    return view('contacto');
 })->name('contacto');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
