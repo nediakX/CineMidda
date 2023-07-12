@@ -171,7 +171,7 @@ class FuncionController extends Controller
     {
         $funciones = Funcion::all(); // Obtén todas las funciones desde el modelo Funcion
 
-        return view('cartelera', compact('funciones'));
+        return view('/cartelera', compact('funciones'));
     }
 
 
