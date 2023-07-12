@@ -19,7 +19,7 @@ class RoleMiddleware
         $user = $request->user();
 
         // Verificar si el usuario tiene el rol de administrador
-        if ($user && $user->role === 'user') {
+        if ($user && $user->role === 'admin') {
             // Si es administrador, se permite el acceso a todas las vistas
             return $next($request);
         }
