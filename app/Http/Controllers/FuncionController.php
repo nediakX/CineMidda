@@ -68,17 +68,13 @@ class FuncionController extends Controller
         $asientosDisponibles = $funcion->numero_reservas - $asientosOcupados;
 
         if (Auth::check()) {
-            // Verificar el rol del usuario autenticado
             if (Auth::user()->role === 'user') {
-                // Si el usuario tiene el rol "user", redirige a la vista "showuser" o la que desees
                 return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
             }
 
-            // Si el usuario tiene otro rol, muestra la vista "Funciones.show" normalmente
             return view('Funciones.show', compact('funcion', 'asientosDisponibles'));
         }
 
-        // Si el usuario no está autenticado, muestra la vista "Funciones.showUser"
         return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
     }
 
@@ -169,7 +165,7 @@ class FuncionController extends Controller
 
     public function cartelera()
     {
-        $funciones = Funcion::all(); // Obtén todas las funciones desde el modelo Funcion
+        $funciones = Funcion::all();
 
         return view('cartelera', compact('funciones'));
     }
