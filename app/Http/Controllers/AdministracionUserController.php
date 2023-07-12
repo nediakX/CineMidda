@@ -30,7 +30,7 @@ class AdministracionUserController extends Controller
         $user->email = $request->input('email');
 
         // Verificar si el usuario es administrador
-        if ($user->role === 'user') {
+        if ($user->role === 'admin') {
             // Verificar si se proporcionó la contraseña anterior
             if (!$request->has('current_password') || !Hash::check($request->input('current_password'), $user->password)) {
                 return redirect()->back()->withErrors(['current_password' => 'La contraseña anterior es incorrecta.']);
