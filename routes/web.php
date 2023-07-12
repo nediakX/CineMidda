@@ -22,9 +22,8 @@ Route::get('/funciones/create', [FuncionController::class, 'create'])
 
 Route::get('/funciones/{id}', [FuncionController::class, 'show'])->name('funciones.show');
 
-Route::get('/contacto', function () {
-    return view('contacto');
-})->name('contacto');
+Route::get('/contacto', [FuncionController::class, 'contacto'])->name('contacto');
+
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/funciones', FuncionController::class);

@@ -85,6 +85,11 @@ class FuncionController extends Controller
         return view('funciones.edit', compact('funcion'));
     }
 
+    public function contacto()
+    {
+        return view('contacto');
+    }
+
     public function update(Request $request, $id)
     {
         $funcion = Funcion::findOrFail($id);
