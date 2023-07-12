@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\User;
 
+
 class FuncionController extends Controller
 {
     public function showWelcome()
