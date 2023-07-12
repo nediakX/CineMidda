@@ -29,27 +29,22 @@ class AdministracionUserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
 
-        // Verificar si el usuario es administrador
         if ($user->role === 'admin') {
-            // Verificar si se proporcionó la contraseña anterior
             if (!$request->has('current_password') || !Hash::check($request->input('current_password'), $user->password)) {
                 return redirect()->back()->withErrors(['current_password' => 'La contraseña anterior es incorrecta.']);
             }
         }
 
-        // Verificar si se proporcionó una nueva contraseña
         if ($request->has('password') && $request->has('password_confirmation')) {
-            // Validar que la contraseña coincida con la confirmación
             $request->validate([
                 'password' => 'required|string|min:8|confirmed',
             ]);
 
-            // Actualizar la contraseña
             $user->password = Hash::make($request->input('password'));
         }
 
         $user->role = $request->input('role');
-        
+
         $user->save();
 
         return redirect()->route('administracion-user.index')->with('success', 'Usuario actualizado exitosamente.');
