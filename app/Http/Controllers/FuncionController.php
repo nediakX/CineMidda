@@ -250,7 +250,7 @@ class FuncionController extends Controller
     {
         $funcion = Funcion::findOrFail($id);
         $funcion->delete();
-        return redirect()->route('Funciones.index');
+        return redirect()->route('funciones.index');
     }
     public function destroyReserva($id)
     {

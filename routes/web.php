@@ -17,19 +17,19 @@ use App\Http\Controllers\FuncionController;
 
 Route::get('/', [FuncionController::class, 'showWelcome'])->name('welcome');
 
-Route::get('/Funciones/create', [FuncionController::class, 'create'])
-    ->name('Funciones.create');
+Route::get('/funciones/create', [FuncionController::class, 'create'])
+    ->name('funciones.create');
 
-Route::get('/Funciones/{id}', [FuncionController::class, 'show'])->name('Funciones.show');
+Route::get('/funciones/{id}', [FuncionController::class, 'show'])->name('funciones.show');
 
 Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::resource('/Funciones', FuncionController::class);
+    Route::resource('/funciones', FuncionController::class);
 
-    Route::delete('/Funciones/{funcion}', 'FuncionController@destroy')->name('Funciones.destroy');
+    Route::delete('/funciones/{funcion}', 'FuncionController@destroy')->name('funciones.destroy');
 
     Route::get('/dashboard', [FuncionController::class, 'validarReservas'])->name('dashboard');
 
@@ -39,13 +39,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::delete('/administracion-user/{id}', [AdministracionUserController::class, 'destroy'])->name('administracion-user.destroy');
 
 
-    Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('Funciones.destroyReserva');
+    Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('funciones.destroyReserva');
 });
 
-Route::get('/Funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('Funciones.reservar');
+Route::get('/funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('funciones.reservar');
 
-Route::post('/Funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
+Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
 
-Route::post('/Funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('Funciones.ingresardatos');
+Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
 
 Route::get('/Cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');
