@@ -70,7 +70,7 @@ class FuncionController extends Controller
 
         if (Auth::check()) {
             if (Auth::user()->role === 'user') {
-                return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
+                return view('funciones.showUser', compact('funcion', 'asientosDisponibles'));
             }
 
             return view('funciones.show', compact('funcion', 'asientosDisponibles'));
@@ -82,7 +82,7 @@ class FuncionController extends Controller
     public function edit($id)
     {
         $funcion = Funcion::findOrFail($id);
-        return view('Funciones.edit', compact('funcion'));
+        return view('funciones.edit', compact('funcion'));
     }
 
     public function update(Request $request, $id)
@@ -122,7 +122,7 @@ class FuncionController extends Controller
 
         $funcion->save();
 
-        return redirect()->route('Funciones.index');
+        return redirect()->route('funciones.index');
     }
 
 

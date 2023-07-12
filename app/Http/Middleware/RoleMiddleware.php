@@ -25,7 +25,7 @@ class RoleMiddleware
         }
 
         // Si es un usuario normal, verificar la ruta actual y redirigir según corresponda
-        if ($request->routeIs('validar-reservas') || $request->routeIs('administracion-user.*') || $request->routeIs('dashboard') || $request->routeIs('Funciones.index') || $request->routeIs('Funciones.create') || $request->routeIs('Funciones.edit')) {
+        if ($request->routeIs('validar-reservas') || $request->routeIs('administracion-user.*') || $request->routeIs('dashboard') || $request->routeIs('funciones.index') || $request->routeIs('funciones.create') || $request->routeIs('funciones.edit')) {
             // Redirigir a la página de inicio u otra página de acceso denegado
             return redirect()->route('welcome')->with('error', 'Acceso denegado.');
         }
