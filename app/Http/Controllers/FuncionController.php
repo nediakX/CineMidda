@@ -73,10 +73,10 @@ class FuncionController extends Controller
                 return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
             }
 
-            return view('Funciones.show', compact('funcion', 'asientosDisponibles'));
+            return view('funciones.show', compact('funcion', 'asientosDisponibles'));
         }
 
-        return view('Funciones.showUser', compact('funcion', 'asientosDisponibles'));
+        return view('funciones.showUser', compact('funcion', 'asientosDisponibles'));
     }
 
     public function edit($id)
