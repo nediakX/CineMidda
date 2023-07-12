@@ -43,7 +43,7 @@
         </div>
         <div class="welcome-container">
             @foreach ($funciones as $funcion)
-            <a href="{{ route('Funciones.show', $funcion) }}">
+            <a href="{{ route('funciones.show', $funcion) }}">
                 <div class="welcome-function">
                     <img class="image" src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
                         alt="Imagen de la función" style="width: 700px; height: 800px">
