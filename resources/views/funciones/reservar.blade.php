@@ -63,7 +63,7 @@
                 </div>
                 <div class="col-md-6 order-md-1">
                     <div id="fichaAsientos" class="text-center">
-                        <form action="{{ route('Funciones.ingresardatos', ['id' => $funcion->id]) }}" method="POST">
+                        <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="POST">
                             @csrf
                             <input type="hidden" name="asientos_seleccionados" id="asientosSeleccionadosInput"
                                 value="">

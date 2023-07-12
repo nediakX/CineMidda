@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex justify-center items-center py-4">
-                    <a href="{{ route('Funciones.create') }}"
+                    <a href="{{ route('funciones.create') }}"
                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                         Crear Nueva Función
                     </a>
@@ -55,16 +55,16 @@
                                                     <td class="px-6 py-4">
                                                         <div class="flex justify-center items-center">
                                                             <!--Ver Funcion -->
-                                                            <a href="{{ route('Funciones.show', $funcion->id) }}"
+                                                            <a href="{{ route('funciones.show', $funcion->id) }}"
                                                                 class="mr-3 rounded bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4">Ver
                                                                 Detalles</a>
                                                             <!-- Editar -->
-                                                            <a href="{{ route('Funciones.edit', $funcion->id) }}"
+                                                            <a href="{{ route('funciones.edit', $funcion->id) }}"
                                                                 class="rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4">Editar
                                                                 Funcion</a>
                                                             <!-- Borrar -->
                                                             <form
-                                                                action="{{ route('Funciones.destroy', $funcion->id) }}"
+                                                                action="{{ route('funciones.destroy', $funcion->id) }}"
                                                                 method="POST" class="formEliminar"
                                                                 data-titulo="{{ $funcion->titulo }}">
                                                                 @csrf

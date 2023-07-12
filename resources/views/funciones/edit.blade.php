@@ -9,7 +9,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div class="p-6">
-                        <form action="{{ route('Funciones.update', $funcion->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('funciones.update', $funcion->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-4">
@@ -49,7 +49,7 @@
 
                             <div class="mt-6">
                                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Guardar</button>
-                                <a href="{{ route('Funciones.index') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-full">Cancelar</a>
+                                <a href="{{ route('funciones.index') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2.5 px-4 rounded-full">Cancelar</a>
                             </div>
                         </form>
                     </div>

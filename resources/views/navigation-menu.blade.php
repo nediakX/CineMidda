@@ -25,7 +25,7 @@
                             </x-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link href="{{ route('Funciones.index') }}" :active="request()->routeIs('Funciones.index')">
+                            <x-nav-link href="{{ route('funciones.index') }}" :active="request()->routeIs('funciones.index')">
                                 {{ __('Administrar Funciones') }}
                             </x-nav-link>
                         </div>

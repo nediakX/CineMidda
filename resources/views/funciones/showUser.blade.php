@@ -59,7 +59,7 @@
                         <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
                         <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
                         <div id="reservaButton">
-                            <a href="{{ route('Funciones.reservar', $funcion->id) }}"
+                            <a href="{{ route('funciones.reservar', $funcion->id) }}"
                                 class="btn btn-primary">RESERVAR</a>
                         </div>
 

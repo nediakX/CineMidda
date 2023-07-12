@@ -27,17 +27,17 @@
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
                         </div>
-                        <form action="{{ route('Funciones.destroy', $funcion->id) }}" method="POST"
+                        <form action="{{ route('funciones.destroy', $funcion->id) }}" method="POST"
                             class="formEliminar" data-titulo="{{ $funcion->titulo }}">
                             @csrf
                             @method('DELETE')
                             <td>
                                 <tr>
-                                    <a href="{{ route('Funciones.index') }}"
+                                    <a href="{{ route('funciones.index') }}"
                                         class="ml-2 rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4">Volver</a>
                                 </tr>
                                 <tr>
-                                    <a href="{{ route('Funciones.edit', $funcion->id) }}"
+                                    <a href="{{ route('funciones.edit', $funcion->id) }}"
                                         class="ml-3 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar
                                         Funcion</a></tr>
                                 <tr>
