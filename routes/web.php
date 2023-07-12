@@ -22,7 +22,7 @@ Route::get('/Funciones/create', [FuncionController::class, 'create'])
 
 Route::get('/Funciones/{id}', [FuncionController::class, 'show'])->name('Funciones.show');
 
-Route::get('/Contacto', function () {
+Route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
 
