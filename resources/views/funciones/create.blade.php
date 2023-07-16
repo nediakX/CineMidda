@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
-                    <form action="{{ route('funciones.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ secure_url('funciones.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-4">
@@ -64,7 +64,7 @@
         </div>
     </div>
 </x-app-layout>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{{ secure_asset('js/jquery-3.5.1.min.js') }}"></script>
 <script>
     $(document).ready(function(e) {
         $('#imagen').change(function() {
