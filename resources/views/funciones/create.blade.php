@@ -9,14 +9,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
-                    <form action="{{ secure_url('funciones/store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('funciones.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-4">
                             <label for="titulo" class="block text-sm font-medium text-gray-700">Título</label>
                             <input type="text" name="titulo" id="titulo"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm"
-                                required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
                         </div>
 
                         <div class="mb-4">
@@ -29,15 +28,13 @@
                         <div class="mb-4">
                             <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
                             <input type="date" name="fecha" id="fecha"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm"
-                                required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
                         </div>
 
                         <div class="mb-4">
                             <label for="hora" class="block text-sm font-medium text-gray-700">Hora</label>
                             <input type="time" name="hora" id="hora"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm"
-                                required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
                         </div>
 
                         <div class="mb-4">
@@ -47,16 +44,14 @@
                         <div class="mb-4">
                             <label for="imagen" class="block text-sm font-medium text-gray-700">Elegir Imagen</label>
                             <input type="file" name="imagen" id="imagen"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full  shadow-sm"
-                                required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full  shadow-sm" required>
                         </div>
 
                         <div class="mb-4">
                             <label for="numero_reservas" class="block text-sm font-medium text-gray-700">Número de
                                 Reservas</label>
                             <input type="number" name="numero_reservas" id="numero_reservas"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm"
-                                required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
                         </div>
 
                         <div class="mt-6">
@@ -69,7 +64,7 @@
         </div>
     </div>
 </x-app-layout>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
     $(document).ready(function(e) {
         $('#imagen').change(function() {
