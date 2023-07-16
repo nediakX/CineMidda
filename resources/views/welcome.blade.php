@@ -16,7 +16,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/foo.css">
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
