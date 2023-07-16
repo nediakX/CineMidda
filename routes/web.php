@@ -22,9 +22,6 @@ Route::get('/funciones/create', [FuncionController::class, 'create'])
 
 Route::get('/funciones/{id}', [FuncionController::class, 'show'])->name('funciones.show');
 
-Route::get('/contacto', [FuncionController::class, 'contacto'])->name('contacto');
-
-
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/funciones', FuncionController::class);
 
@@ -48,3 +45,5 @@ Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReser
 Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
 
 Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');
+
+Route::get('/contacto', [FuncionController::class, 'contacto'])->name('contacto');
