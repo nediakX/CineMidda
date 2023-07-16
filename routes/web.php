@@ -25,6 +25,8 @@ Route::get('/funciones/{id}', [FuncionController::class, 'show'])->name('funcion
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/funciones', FuncionController::class);
 
+    Route::post('/funciones', [FuncionController::class, 'store'])->name('funciones.store');
+
     Route::delete('/funciones/{funcion}', 'FuncionController@destroy')->name('funciones.destroy');
 
     Route::get('/dashboard', [FuncionController::class, 'validarReservas'])->name('dashboard');
