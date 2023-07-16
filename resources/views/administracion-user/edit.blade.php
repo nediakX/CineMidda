@@ -18,7 +18,6 @@
                         @csrf
                         @method('PUT')
 
-                        <!-- Campos del formulario para editar los datos del usuario -->
                         <div class="mb-4">
                             <label for="name"
                                 class="block text-gray-700 text-sm font-bold mb-2">{{ __('Nombre') }}</label>
