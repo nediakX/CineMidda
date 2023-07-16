@@ -75,7 +75,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <form action="{{ secure_url('funciones.destroyReserva', $reserva->id) }}"
-                                            method="POST">
+                                                method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <script src="{{ secure_asset('js/jquery-3.6.0.min.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#rut').on('input', function() {
