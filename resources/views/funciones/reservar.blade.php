@@ -27,7 +27,8 @@
                 <form method="POST" action="/logout">
                     @csrf
                     <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
+                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
+                        CONTROL</a>
                 </form>
             @else
                 <a href="{{ route('login') }}">INICIAR SESION</a>
@@ -52,8 +53,8 @@
                     <div class="image-container">
                         <div id="imagenFicha">
                             @if ($funcion->imagen)
-                                <img src="{{ 'storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
-                                    width="275" height="396">
+                                <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
+                                    alt="Imagen de la función" width="275" height="396">
                             @else
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
