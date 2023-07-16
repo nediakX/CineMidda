@@ -163,6 +163,7 @@ class FuncionController extends Controller
         ], [
             'asientos_seleccionados.required' => 'Por favor, seleccione al menos un asiento.',
         ]);
+
         $funcionid = $request->input('funcionid');
         $asientos = $request->input('asientos_seleccionados');
 

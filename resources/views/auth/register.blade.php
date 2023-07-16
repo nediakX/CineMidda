@@ -16,11 +16,8 @@
 
     <link rel="stylesheet" href="/css/styleAdmin.css">
 </head>
-
 <body class="bg-animate">
     <div class="d-flex justify-content-center">
-<x-validation-errors class="margin-left-zero" />
-
         <div id="formularioRegistro">
             <br>
             <form method="POST" action="{{ route('register') }}">
@@ -87,8 +84,11 @@
                     {{ __('Ya estoy registrado') }}
                 </a>
             </form>
-            <p></p>
+            <br>
             </label>
+            <br>
+            <x-validation-errors/>
+
         </div>
         <div class="bubbles">
             <div class="bubble"></div>
