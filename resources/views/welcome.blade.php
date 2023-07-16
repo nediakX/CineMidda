@@ -15,7 +15,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -26,27 +26,27 @@
     <div id="navbar" class="no-margin">
         @if (Route::has('login'))
             @auth
-                <form method="POST" action="{{ secure_url('logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : secure_url('/dashboard') }}">PANEL DE
+                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
                         CONTROL</a>
                 </form>
             @else
-                <a href="{{ secure_url('login') }}">INICIAR SESION</a>
-                <a href="{{ secure_url('register') }}">REGISTRO</a>
+                <a href="{{ route('login') }}">INICIAR SESION</a>
+                <a href="{{ route('register') }}">REGISTRO</a>
             @endauth
         @endif
-        <a href="{{ secure_url('contacto') }}">CONTACTO</a>
-        <a href="{{ secure_url('cartelera') }}">CARTELERA</a>
+        <a href="{{ route('contacto') }}">CONTACTO</a>
+        <a href="{{ route('cartelera') }}">CARTELERA</a>
         <a href="/">INICIO</a>
-        <img src="{{ secure_asset('images/cine en el midda.png') }}" alt="CineMiddaLogo" style="width: 500px;">
+        <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
     <div class="welcome-container">
         @foreach ($funciones as $funcion)
-            <a href="{{ secure_url('funciones/show', $funcion->id) }}">
+            <a href="{{ route('funciones.show', $funcion->id) }}">
                 <div class="welcome-function">
-                    <img class="image" src="{{ secure_asset('storage/imagen/' . $funcion->imagen) }}"
+                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
                         alt="Imagen de la función" style="width: 700px; height: 800px">
                     <div class="title">{{ $funcion->titulo }}
                         <br>
@@ -112,10 +112,10 @@
             <div class="col">
                 <br>
                 Fono: +56 9 5321 9670
-                <a href="https://web.facebook.com/MidDA2022"><img src="{{ secure_asset('icons/facebook.png') }}" alt="Facebook midDa"
+                <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
                         style="float: right;"></a>
                 <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
-                        src="{{ secure_asset('icons/whatsapp.png') }}" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
+                        src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
                 <br>
                 Correo: correomidda@midda.cl
                 <br>
