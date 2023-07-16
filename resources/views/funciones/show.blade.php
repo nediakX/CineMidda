@@ -1,4 +1,3 @@
-<!-- resources/views/funciones/show.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -6,9 +5,7 @@
         </h2>
     </x-slot>
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
-
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -18,11 +15,27 @@
                         <div>
                             <h1 class="text-3xl font-bold">{{ $funcion->titulo }}</h1>
                             <p class="text-gray-600">{{ $funcion->descripcion }}</p>
-                            <p><strong>Fecha de la funcion:</strong> {{ $funcion->fecha }}</p>
+                            <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
                             <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
                             <p><strong>Número total de reservas:</strong> {{ $funcion->numero_reservas }}</p>
                             <p><strong>Asientos disponibles:</strong> {{ $asientosDisponibles }}</p>
+
+                            <div class="flex justify-between mt-4">
+                                <a href="{{ route('funciones.index') }}"
+                                    class="rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4">Volver</a>
+                                <a href="{{ route('funciones.edit', $funcion->id) }}"
+                                    class="rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar Función</a>
+
+                                <form action="{{ route('funciones.destroy', $funcion->id) }}" method="POST"
+                                    class="formEliminar" data-titulo="{{ $funcion->titulo }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="rounded bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Eliminar Función</button>
+                                </form>
+                            </div>
                         </div>
+
                         <div>
                             @if ($funcion->imagen)
                                 <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
@@ -31,27 +44,6 @@
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
                         </div>
-                        <form action="{{ route('funciones.destroy', $funcion->id) }}" method="POST"
-                            class="formEliminar" data-titulo="{{ $funcion->titulo }}">
-                            @csrf
-                            @method('DELETE')
-                            <td>
-                                <tr>
-                                    <a href="{{ route('funciones.index') }}"
-                                        class="ml-2 rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4">Volver</a>
-                                </tr>
-                                <tr>
-                                    <a href="{{ route('funciones.edit', $funcion->id) }}"
-                                        class="ml-3 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar
-                                        Funcion</a>
-                                </tr>
-                                <tr>
-                                    <button type="submit"
-                                        class="ml-3 rounded bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Eliminar
-                                        Funcion</button>
-                                </tr>
-                            </td>
-                        </form>
                     </div>
                 </div>
             </div>
