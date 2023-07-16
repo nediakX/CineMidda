@@ -21,8 +21,8 @@
                         </div>
                         <div>
                             @if ($funcion->imagen)
-                                <img src="{{ 'storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
-                                    width="520">
+                                <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
+                                    alt="Imagen de la función" width="520">
                             @else
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
@@ -39,11 +39,13 @@
                                 <tr>
                                     <a href="{{ route('funciones.edit', $funcion->id) }}"
                                         class="ml-3 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar
-                                        Funcion</a></tr>
+                                        Funcion</a>
+                                </tr>
                                 <tr>
                                     <button type="submit"
                                         class="ml-3 rounded bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Eliminar
-                                        Funcion</button></tr>
+                                        Funcion</button>
+                                </tr>
                             </td>
                         </form>
                     </div>
