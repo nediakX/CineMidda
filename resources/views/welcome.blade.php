@@ -15,7 +15,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -26,21 +26,21 @@
     <div id="navbar" class="no-margin">
         @if (Route::has('login'))
             @auth
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ secure_url('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
+                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : secure_url('/dashboard') }}">PANEL DE
                         CONTROL</a>
                 </form>
             @else
-                <a href="{{ route('login') }}">INICIAR SESION</a>
-                <a href="{{ route('register') }}">REGISTRO</a>
+                <a href="{{ secure_url('login') }}">INICIAR SESION</a>
+                <a href="{{ secure_url('register') }}">REGISTRO</a>
             @endauth
         @endif
-        <a href="{{ route('contacto') }}">CONTACTO</a>
-        <a href="{{ route('cartelera') }}">CARTELERA</a>
+        <a href="{{ secure_url('contacto') }}">CONTACTO</a>
+        <a href="{{ secure_url('cartelera') }}">CARTELERA</a>
         <a href="/">INICIO</a>
-        <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
+        <img src="{{ secure_asset('images/cine en el midda.png') }}" alt="CineMiddaLogo" style="width: 500px;">
     </div>
     <div class="welcome-container">
         @foreach ($funciones as $funcion)
