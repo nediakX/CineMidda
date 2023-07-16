@@ -4,6 +4,8 @@
             {{ __('Validar Reservas') }}
         </h2>
     </x-slot>
+    <script src="https://cdn.tailwindcss.com"></script>
+
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
