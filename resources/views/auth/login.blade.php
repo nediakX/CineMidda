@@ -21,11 +21,11 @@
     <div class="d-flex justify-content-center">
         <div id="formulario">
             <br>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ secure_url('login') }}">
                 @csrf
                 <div class="row">
                     <div class="col">
-                        <img src="/images/cine en el midda admin.png" alt="">
+                        <img src="{{ secure_asset('/images/cine en el midda admin.png') }}" alt="">
                     </div>
                 </div>
                 <br>
@@ -63,10 +63,10 @@
             </form>
             <p></p>
             <div class="forget">
-                ¿Ha olvidado su contraseña? <a href="{{ route('password.request') }}">¡Haga clic aquí!</a>
+                ¿Ha olvidado su contraseña? <a href="{{ secure_url('password.request') }}">¡Haga clic aquí!</a>
             </div>
             <div class="register">
-                <a href="/register">Regístrate</a> | <a href="/">Volver</a>
+                <a href="{{ secure_url('register') }}">Regístrate</a> | <a href="/">Volver</a>
             </div>
             <x-validation-errors class="mt-5" />
         </label>
