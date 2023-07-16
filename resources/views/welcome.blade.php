@@ -51,7 +51,7 @@
                     <div class="title">{{ $funcion->titulo }}
                         <br>
                         Reserve Aqui - Disponibles
-                        (/{{ $funcion->asientosDisponibles }}/{{ $funcion->numero_reservas }})
+                        ({{ $funcion->asientosDisponibles }}/{{ $funcion->numero_reservas }})
                     </div>
                 </div>
             </a>
