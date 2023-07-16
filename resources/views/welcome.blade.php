@@ -28,7 +28,8 @@
                     <form method="POST" action="/logout">
                         @csrf
                         <button type="submit">Salir</button>
-                        <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
+                        <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
+                            CONTROL</a>
                     </form>
                 @else
                     <a href="{{ route('login') }}">INICIAR SESION</a>
@@ -42,17 +43,18 @@
         </div>
         <div class="welcome-container">
             @foreach ($funciones as $funcion)
-            <a href="{{ route('funciones.show', $funcion) }}">
-                <div class="welcome-function">
-                    <img class="image" src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
-                        alt="Imagen de la función" style="width: 700px; height: 800px">
-                    <div class="title">{{ $funcion->titulo }}
-                        <br>
-                        Reserve Aqui - Disponibles ({{ $funcion->numero_reservas }}/{{ $funcion->asientosDisponibles }})
+                <a href="{{ route('funciones.show', $funcion) }}">
+                    <div class="welcome-function">
+                        <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
+                            alt="Imagen de la función" style="width: 700px; height: 800px">
+                        <div class="title">{{ $funcion->titulo }}
+                            <br>
+                            Reserve Aqui - Disponibles
+                            ({{ $funcion->numero_reservas }}/{{ $funcion->asientosDisponibles }})
+                        </div>
                     </div>
-                </div>
-            </a>
-        @endforeach
+                </a>
+            @endforeach
         </div>
         <div class="container main-container"</div>
             <div class="container text-left">
