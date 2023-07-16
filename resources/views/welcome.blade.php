@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
 
 </head>
 
@@ -51,7 +51,7 @@
                     <div class="title">{{ $funcion->titulo }}
                         <br>
                         Reserve Aqui - Disponibles
-                        ({{ $funcion->numero_reservas }}/{{ $funcion->asientosDisponibles }})
+                        (/{{ $funcion->asientosDisponibles }}/{{ $funcion->numero_reservas }})
                     </div>
                 </div>
             </a>
