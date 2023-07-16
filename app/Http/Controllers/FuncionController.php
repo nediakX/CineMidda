@@ -87,7 +87,7 @@ class FuncionController extends Controller
 
     public function contacto()
     {
-        return view('contacto');
+        return view('/contacto');
     }
 
     public function update(Request $request, $id)
