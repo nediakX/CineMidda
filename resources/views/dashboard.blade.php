@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
-                    <form action="{{ route('dashboard') }}" method="GET" id="filter-form">
+                    <form action="{{ secure_url('dashboard') }}" method="GET" id="filter-form">
                         <div class="flex flex-wrap -mx-3 mb-4">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label for="rut"
@@ -74,7 +74,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <form action="{{ route('funciones.destroyReserva', $reserva->id) }}"
+                                        <form action="{{ secure_url('funciones.destroyReserva', $reserva->id) }}"
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -92,7 +92,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ secure_asset('js/jquery-3.6.0.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             $('#rut').on('input', function() {
