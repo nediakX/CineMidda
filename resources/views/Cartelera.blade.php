@@ -91,7 +91,7 @@
                             title: '{{ $funcion->titulo }}',
                             start: '{{ $funcion->fecha }}T{{ $funcion->hora }}',
                             url: '{{ route('funciones.show', $funcion->id) }}',
-                            image: '{{ asset('storage/imagen/' . $funcion->imagen) }}'
+                            image: '{{ ('storage/imagen/' . $funcion->imagen) }}'
                         },
                     @endforeach
                 ],

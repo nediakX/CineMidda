@@ -48,7 +48,7 @@
                                                     <td class="px-6 py-4">{{ $funcion->fecha }}</td>
                                                     <td class="px-6 py-4">{{ $funcion->hora }}</td>
                                                     <td class="px-6 py-4">
-                                                        <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}"
+                                                        <img src="{{ 'storage/imagen/' . $funcion->imagen }}"
                                                             alt="Imagen de la película" width="100">
                                                     </td>
                                                     <td class="px-6 py-4">{{ $funcion->numero_reservas }}</td>

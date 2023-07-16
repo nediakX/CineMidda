@@ -45,7 +45,7 @@
                 <div class="mt-5 col-md-4">
                     <div id="imagenFicha">
                         @if ($funcion->imagen)
-                            <img src="{{ asset('storage/imagen/' . $funcion->imagen) }}" alt="Imagen de la función"
+                            <img src="{{ 'storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
                                 width="275" height="396">
                         @else
                             <p>No se ha cargado una imagen para esta película.</p>
