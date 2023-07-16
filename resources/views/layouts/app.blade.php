@@ -13,7 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
 
         <!-- Styles -->
         @livewireStyles
@@ -44,5 +44,3 @@
         @livewireScripts
     </body>
 </html>
-@livewireStyles
-@livewireScripts
