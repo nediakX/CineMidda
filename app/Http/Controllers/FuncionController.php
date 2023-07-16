@@ -58,7 +58,7 @@ class FuncionController extends Controller
         }
 
         Funcion::create($funcion);
-        return redirect()->route('funciones.index');
+        return redirect()->secure_url('funciones.index');
     }
 
     public function show(string $id)

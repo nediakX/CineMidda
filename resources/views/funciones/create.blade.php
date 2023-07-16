@@ -15,14 +15,14 @@
                         <div class="mb-4">
                             <label for="titulo" class="block text-sm font-medium text-gray-700">Título</label>
                             <input type="text" name="titulo" id="titulo"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required placeholder="Ingrese el titulo de la funcion.">
                         </div>
 
                         <div class="mb-4">
                             <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
                             <textarea name="descripcion" id="descripcion" rows="4"
                                 class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm"
-                                style="padding-left: 10px;" required></textarea>
+                                style="padding-left: 10px;" required placeholder="Ingrese una descripcion. "></textarea>
                         </div>
 
                         <div class="mb-4">
@@ -51,7 +51,7 @@
                             <label for="numero_reservas" class="block text-sm font-medium text-gray-700">Número de
                                 Reservas</label>
                             <input type="number" name="numero_reservas" id="numero_reservas"
-                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required>
+                                class="border-gray-300 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md shadow-sm" required placeholder="Ingrese el numero de reservas deseado.">
                         </div>
 
                         <div class="mt-6">

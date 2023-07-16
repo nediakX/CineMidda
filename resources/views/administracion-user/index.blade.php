@@ -54,7 +54,7 @@
                                     <button type="button" onclick="confirmDelete('{{ $user->id }}')" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
                                         Eliminar Usuario
                                     </button>
-                                    <form id="delete-form-{{ $user->id }}" action="{{ route('administracion-user.destroy', $user->id) }}" method="POST" style="display: none;">
+                                    <form id="delete-form-{{ $user->id }}" action="{{ secure_url('administracion-user.destroy', $user->id) }}" method="POST" style="display: none;">
                                         @csrf
                                         @method('DELETE')
                                     </form>
