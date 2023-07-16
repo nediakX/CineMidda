@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2" integrity="sha384-xg6w6F5WjIB9GmCVYh21HzS7HhZ0eobRtMxF4FmvSIRIiukqyL3QzBm7agkwP7m7" crossorigin="anonymous" defer></script>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
