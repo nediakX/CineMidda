@@ -54,7 +54,7 @@
                 <div class="col-5">
                     <div class="form-container">
                         <h2>Ingrese sus datos</h2>
-                        <form action="{{ route('funciones.reservar', ['id' => $funcionid]) }}" method="POST">
+                        <form action="{{ secure_url(route('funciones.reservar', ['id' => $funcionid])) }}" method="POST">
                             @csrf
                             <input type="hidden" name="asientos_seleccionados" id="funcionid"
                                 value="{{ $asientos }}">
