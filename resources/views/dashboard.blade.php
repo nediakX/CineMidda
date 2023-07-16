@@ -74,8 +74,8 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <form action="{{ secure_url('funciones.destroyReserva', $reserva->id) }}"
-                                                method="POST">
+                                        <form action="{{ route('funciones.destroyReserva', $reserva->id) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit"
