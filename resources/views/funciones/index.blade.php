@@ -64,7 +64,7 @@
                                                                 Funcion</a>
                                                             <!-- Borrar -->
                                                             <form
-                                                                action="{{ secure_url('funciones.destroy', $funcion->id) }}"
+                                                                action="{{ route('funciones.destroy', $funcion->id) }}"
                                                                 method="POST" class="formEliminar"
                                                                 data-titulo="{{ $funcion->titulo }}">
                                                                 @csrf
