@@ -19,8 +19,9 @@
 
     <!-- Styles -->
     @livewireStyles
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/jetstream.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/jetstream.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="font-sans antialiased">
