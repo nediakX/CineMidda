@@ -81,7 +81,7 @@
     <div class="d-flex justify-content-center">
         <div id="formulario">
             <br>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ secure_url('login') }}">
                 @csrf
                 <div class="row">
                     <div class="col">
