@@ -179,6 +179,11 @@
                 {{ __('Control Usuarios') }}
             </x-responsive-nav-link>
         </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
+                {{ __('Pagina de Inicio') }}
+            </x-responsive-nav-link>
+        </div>
 
 
         <!-- Responsive Settings Options -->
