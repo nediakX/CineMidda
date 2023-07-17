@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cine MidDA</title>
 
@@ -21,11 +21,6 @@
 </head>
 
 <style>
-    .movie-ficha {
-        display: flex
-        color: white;
-    }
-
 </style>
 
 <body class="antialiased">
@@ -84,63 +79,69 @@
         </div>
     </nav>
 
-        <div class="container main-container" style="margin-top: 40px;">
-            <div class="row">
-                <div class="col-3">
-                    <div class="asientos-seleccionados">
-                        <h3 style="text-align: center">Asientos seleccionados:</h3>
-                        <div id="asientosSeleccionadosContainer">{{ $asientos }}</div>
-                        <div class="botonCancelar">
-                            <h5><a href="reservar">Elegir nuevamente</a></h5>
-                        </div>
+    <div class="container main-container" style="margin-top: 40px;">
+        <div class="row">
+            <div class="col-sm-12 col-md-4 mx-auto mb-5">
+                <div class="asientos-seleccionados">
+                    <h3 style="text-align: center">Asientos seleccionados:</h3>
+                    <div id="asientosSeleccionadosContainer">{{ $asientos }}</div>
+                    <div class="botonCancelar">
+                        <h5><a href="reservar">Elegir nuevamente</a></h5>
                     </div>
                 </div>
-                <div class="col-5">
-                    <div class="form-container">
-                        <h2>Ingrese sus datos</h2>
-                        <form action="{{ secure_url(route('funciones.reservar', ['id' => $funcionid])) }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="asientos_seleccionados" id="funcionid"
-                                value="{{ $asientos }}">
-                            <input type="hidden" name="funcionid" id="funcionid" value="{{ $funcionid }}">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre"
-                                required>
-                            <label for="rut">RUT:</label>
-                            <input type="text" name="rut" id="rut" placeholder="12345678-9" required>
-                            <label for="telefono">Teléfono:</label>
-                            <input type="text" name="telefono" id="telefono" placeholder="Ingrese su telefono"
-                                required>
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" id="email"
-                                placeholder="Ingrese su correo electronico" required>
-                            <button type="submit">Enviar Solicitud</button>
-                        </form>
-                    </div>
+            </div>
+            <div class="col-sm-12 col-md-8 mx-auto">
+                <div class="form-container">
+                    <h2>Ingrese sus datos</h2>
+                    <form action="{{ secure_url(route('funciones.reservar', ['id' => $funcionid])) }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="asientos_seleccionados" id="funcionid" value="{{ $asientos }}">
+                        <input type="hidden" name="funcionid" id="funcionid" value="{{ $funcionid }}">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm" placeholder="Ingrese su nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rut" class="form-label">RUT:</label>
+                            <input type="text" name="rut" id="rut" class="form-control form-control-sm" placeholder="12345678-9" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono:</label>
+                            <input type="text" name="telefono" id="telefono" class="form-control form-control-sm" placeholder="Ingrese su teléfono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" name="email" id="email" class="form-control form-control-sm" placeholder="Ingrese su correo electrónico" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+                    </form>
                 </div>
             </div>
         </div>
-        <footer>
-            <div class="bottom">
-                <div class="col">
-                    <br>
-                    Fono: +56 9 5321 9670
-                    <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
-                            style="float: right;"></a><a
-                        href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
-                            src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right;"></a>
-                    <br>
-                    Correo: correomidda@midda.cl
-                    <br>
-                </div>
+    </div>
+
+
+    <footer>
+        <div class="bottom">
+            <div class="col">
                 <br>
-                <p style="font-style: italic; color: rgba(196, 223, 230, 0.38); text-align: center;"> ® Proyecto de
-                    Museo
-                    Interactivo Digital
-                    Diego de Almagro, Area Cine y Eventos - 2023</p>
+                Fono: +56 9 5321 9670
+                <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
+                        style="float: right;"></a><a
+                    href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
+                        src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right;"></a>
+                <br>
+                Correo: correomidda@midda.cl
                 <br>
             </div>
-        </footer>
-    </body>
+            <br>
+            <p style="font-style: italic; color: rgba(196, 223, 230, 0.38); text-align: center;"> ® Proyecto de
+                Museo
+                Interactivo Digital
+                Diego de Almagro, Area Cine y Eventos - 2023</p>
+            <br>
+        </div>
+    </footer>
+</body>
 
-    </html>
+</html>
