@@ -37,8 +37,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin: 20px;
-            padding: 20px;
-            }
+        }
 
         #formularioRegistro img {
             max-width: 100%;
@@ -69,6 +68,11 @@
             margin-bottom: 10px;
         }
 
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
     </style>
 </head>
 
@@ -93,6 +97,9 @@
                     <div class="col">
                         <x-input id="name" class="block mt-1 w-full" type="text" name="name"
                             :value="old('name')" required autofocus autocomplete="name" placeholder="Ingrese su Nombre de usuario" />
+                        @error('name')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
@@ -104,6 +111,9 @@
                     <div class="col">
                         <x-input id="email" class="block mt-1 w-full" type="email" name="email"
                             :value="old('email')" placeholder="Ingrese su Correo electronico" required autocomplete="username" />
+                        @error('email')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
@@ -115,6 +125,9 @@
                     <div class="col">
                         <x-input id="password" class="block mt-1 w-full" type="password" name="password" required
                             autocomplete="new-password" placeholder="Ingrese su contraseña"/>
+                        @error('password')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <div class="row">
@@ -129,7 +142,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
+                    <div class="col mt-2">
                         <button class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" type="submit" name="enviar"
                             style="color: white;background: #0C6D7E;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -142,8 +155,6 @@
                 </a>
             </form>
             <br>
-            <x-validation-errors/>
-
         </div>
     </div>
     <div class="bubbles">

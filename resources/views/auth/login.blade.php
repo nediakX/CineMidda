@@ -68,6 +68,11 @@
             margin-bottom: 10px;
         }
 
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
 
     </style>
 </head>
@@ -93,6 +98,9 @@
                     <div class="col">
                         <input type="email" name="email" id="email" required placeholder="Ingrese su correo electrónico"
                             autofocus>
+                        @error('email')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <p></p>
@@ -105,6 +113,9 @@
                     <div class="col">
                         <input type="password" name="password" id="password" required
                             placeholder="Ingrese su contraseña">
+                        @error('password')
+                        <p class="error-message">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <br>
@@ -123,9 +134,7 @@
             <div class="register">
                 <a href="/register">Regístrate</a> | <a href="/">Volver</a>
             </div>
-            <x-validation-errors class="mt-5" />
-        </label>
-    </div>
+        </div>
     </div>
     <div class="bubbles">
         <div class="bubble"></div>
