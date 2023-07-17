@@ -29,7 +29,7 @@
 
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="/">
-            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
+            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 360px;">
         </a>
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -88,6 +88,8 @@
         </div>
     </div>
     <br>
+    <br>
+    <br>
     <footer>
         <div class="bottom">
             <div class="col">
@@ -140,5 +142,4 @@
         });
     </script>
 </body>
-
 </html>
