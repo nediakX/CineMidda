@@ -15,6 +15,50 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/css/styleAdmin.css">
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #formularioRegistro {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        #formularioRegistro img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #formularioRegistro input[type="text"],
+        #formularioRegistro input[type="email"],
+        #formularioRegistro input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        #formularioRegistro button {
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+    </style>
 </head>
 <body class="bg-animate">
     <div class="d-flex justify-content-center">
