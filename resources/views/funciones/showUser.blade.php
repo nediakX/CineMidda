@@ -19,6 +19,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
+<style>
+    .movie-ficha {
+        display: flex
+        color: white;
+    }
+
+</style>
+
 <body class="antialiased">
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="/">
@@ -74,43 +83,29 @@
             </div>
         </div>
     </nav>
-    <div class="container main-container" style="margin-top: 70px;">
-        <div id="ficha">
-            <div class="row">
-                <div class="mt-5 col-md-4">
-                    <div id="imagenFicha">
-                        @if ($funcion->imagen)
-                        <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
-                                width="275" height="396">
-                        @else
-                            <p>No se ha cargado una imagen para esta película.</p>
-                        @endif
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div id="datosFicha">
-                        <h1>{{ $funcion->titulo }}</h1>
-                        <p>{{ $funcion->descripcion }}</p>
-                        <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
-                        <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
-                        <div id="reservaButton">
-                            <a href="{{ route('funciones.reservar', $funcion->id) }}"
-                                class="btn btn-primary">RESERVAR</a>
-                        </div>
+    <div class="container mt-5" style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white">
+        <div class="row">
+            <div class="col-md-5 m-2">
+                @if ($funcion->imagen)
+                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función" width="500">
+                @else
+                    <p>No se ha cargado una imagen para esta película.</p>
+                @endif
+            </div>
+            <div class="col-md-5 mt-5 movie-ficha">
+                <h1>{{ $funcion->titulo }}</h1>
+                <p>Fecha de la función: {{ $funcion->fecha }}</p>
+                <p>Horario: {{ $funcion->hora }}</p>
+                <p>Descripción: {{ $funcion->descripcion }}</p>
 
-                    </div>
+                <div class="reservation-button">
+                    <a href="{{ route('funciones.reservar', $funcion->id) }}" class="btn btn-primary">RESERVAR</a>
                 </div>
             </div>
-            <div class="cantidadTotal">
-                <div class="totalReservas">{{ $asientosDisponibles }}</div>
-                <div class="mt-4" style="color: white">
-                    Asientos Disponibles
-                </div>
-            </div>
-
         </div>
     </div>
     <br>
+    </div>
 
     <footer>
         <div class="bottom">
