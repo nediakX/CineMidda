@@ -42,10 +42,8 @@ Route::get('/funciones/{id}/reservar', [FuncionController::class, 'reservarAsien
 
 Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
 
-Route::get('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
 
-
-Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
+Route::GET('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
 
 
 Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');

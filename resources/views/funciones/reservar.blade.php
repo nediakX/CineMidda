@@ -123,7 +123,7 @@
 
                 <div class="col-md-6 mb-5">
                     <div id="fichaAsientos" class="text-center">
-                        <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="POST">
+                        <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="GET">
                             @csrf
                             <input type="hidden" name="asientos_seleccionados" id="asientosSeleccionadosInput" value="">
                             <input type="hidden" name="funcionid" id="funcionid" value="{{ $funcion->id }}">
