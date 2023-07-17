@@ -26,10 +26,10 @@
 
 <body class="antialiased" style="margin-top: -90px;">
     <nav id="navbar" class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
+        </a>
         <div class="container">
-            <a class="navbar-brand" href="/">
-                <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
