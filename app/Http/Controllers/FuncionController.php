@@ -13,7 +13,7 @@ class FuncionController extends Controller
 {
     public function showWelcome()
     {
-        $funciones = Funcion::orderBy('fecha', 'asc')->take(2)->get();
+        $funciones = Funcion::orderBy('fecha', 'asc')->take(5)->get();
 
         foreach ($funciones as $funcion) {
             $asientosOcupados = count($this->getAsientosOcupados($funcion->id));

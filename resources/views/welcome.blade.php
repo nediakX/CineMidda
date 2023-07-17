@@ -7,7 +7,6 @@
 
     <title>Cine MidDA</title>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -19,13 +18,57 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 </head>
+<style>
+    .function-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
 
+    .function-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .function-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .function-card .title {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+    }
+
+    .function-card .details {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    .function-card:hover .title {
+        opacity: 1;
+    }
+</style>
 <body class="antialiased">
-    <nav id="navbar" class="navbar navbar-expand-lg">
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="/">
             <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
         </a>
@@ -48,15 +91,20 @@
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item">
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="nav-link btn btn-link">Salir</button>
-                                </form>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link"
                                     href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL
                                     DE CONTROL</a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="flex items-center space-x-2 text-gray-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="red">
+                                            <path fill-rule="evenodd" d="M10 1a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.707 6.707a1 1 0 0 1 1.414-1.414L10 8.586l2.879-2.879a1 1 0 1 1 1.414 1.414L11.414 10l2.879 2.879a1 1 0 0 1-1.414 1.414L10 11.414l-2.879 2.879a1 1 0 0 1-1.414-1.414L8.586 10 5.707 7.121A1 1 0 0 1 5.707 6.707z" clip-rule="evenodd" />
+                                        </svg>
+                                        <span>Salir</span>
+                                    </button>
+                                </form>
                             </li>
                         @else
                             <li class="nav-item">
@@ -72,21 +120,7 @@
         </div>
     </nav>
 
-    <div class="welcome-container">
-        @foreach ($funciones as $funcion)
-            <a href="{{ route('funciones.show', $funcion->id) }}">
-                <div class="welcome-function">
-                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
-                        style="width: 700px; height: 800px">
-                    <div class="title">{{ $funcion->titulo }}
-                        <br>
-                        Reserve Aqui - Disponibles
-                        ({{ $funcion->asientosDisponibles }}/{{ $funcion->numero_reservas }})
-                    </div>
-                </div>
-            </a>
-        @endforeach
-    </div>
+
     <div class="container main-container">
         <div class="container text-left">
             <div class="row">
@@ -104,56 +138,25 @@
 
         <div class="container text-center">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600"
-                            height="450"
-                            style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"></iframe>
+                @foreach ($funciones as $funcion)
+                    <div class="col-md-4 mb-4">
+                        <div class="function-card">
+                            <a href="{{ route('funciones.show', $funcion->id) }}">
+                                <img src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función">
+                                <div class="title">{{ $funcion->titulo }}</div>
+                            </a>
+                            <div class="details">
+                                <p>Ficha de la función:</p>
+                                <p>Asientos: {{ $funcion->asientosDisponibles }} / {{ $funcion->numero_reservas }}</p>
+                                <p>Fecha: {{ $funcion->fecha }}</p>
+                                <p>Hora: {{ $funcion->hora }}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <br><br>
-                    <div class="row">
-                        <h1>¿Dónde Encontrarnos?</h1>
-                        <p></p>
-                        <h2>Estación Cultural Pueblo Hundido</h2>
-                        <h2>Calle Juan Martínez de Rosa #1103</h2>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <h1>Horarios</h1>
-                        <h2>Jueves desde las 18:00 </h2>
-                        <h2>Viernes desde las 17:30</h2>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <br>
-    <footer>
-        <div class="bottom">
-            <div class="col">
-                <br>
-                Fono: +56 9 5321 9670
-                <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
-                        style="float: right;"></a>
-                <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img src="/icons/whatsapp.png"
-                        alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
-                <br>
-                Correo: correomidda@midda.cl
-                <br>
-            </div>
-            <br>
-            <p style="font-style: italic; color: rgba(196, 223, 230, 0.38); text-align: center;"> ® Proyecto de Museo
-                Interactivo Digital
-                Diego de Almagro, Area Cine y Eventos - 2023</p>
-            <br>
-        </div>
-    </footer>
 </body>
 
 </html>

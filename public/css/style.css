@@ -242,7 +242,8 @@ textarea {
     width: 55px;
     height: 55px;
     background-image: url('/icons/asientoocupado.png');
-    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-size: cover;
+    /* Ajusta el tamaño del icono para cubrir todo el espacio */
     background-repeat: no-repeat;
     margin: 22px;
     text-align: center;
@@ -256,23 +257,28 @@ textarea {
     width: 55px;
     height: 55px;
     background-image: url('/icons/asiento.png');
-    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-size: cover;
+    /* Ajusta el tamaño del icono para cubrir todo el espacio */
     background-repeat: no-repeat;
     margin: 22px;
     text-align: center;
     line-height: 30px;
     cursor: pointer;
 }
+
 .fc-title {
     text-align: center;
 }
 
+
+
 .fc-title img {
     display: block;
-    margin:  auto;
+    margin: auto;
     max-width: 100%;
     height: auto;
-    max-height: 100px; /* Ajusta el valor según tu preferencia */
+    max-height: 100px;
+    /* Ajusta el valor según tu preferencia */
 }
 
 #calendar {
@@ -289,7 +295,8 @@ textarea {
     width: 55px;
     height: 55px;
     background-image: url('/icons/asientoselect.png');
-    background-size: cover; /* Ajusta el tamaño del icono para cubrir todo el espacio */
+    background-size: cover;
+    /* Ajusta el tamaño del icono para cubrir todo el espacio */
     background-repeat: no-repeat;
     margin: 22px;
     text-align: center;
@@ -310,13 +317,13 @@ textarea {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-a{
+a {
     text-decoration: none;
     color: rgb(0, 0, 0);
 
 }
 
-.botonCancelar{
+.botonCancelar {
     padding: 5px;
     text-align: center;
     background-color: white;
@@ -325,13 +332,13 @@ a{
     cursor: pointer;
 }
 
-.botonCancelar:hover{
+.botonCancelar:hover {
     text-align: center;
     background-color: rgb(204, 203, 203);
     border-radius: 15px;
 }
 
-#asientosSeleccionadosContainer{
+#asientosSeleccionadosContainer {
     font-size: 25px;
 }
 
