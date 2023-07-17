@@ -93,8 +93,7 @@
                         @auth
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL
-                                    DE CONTROL</a>
+                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
                             </li>
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
