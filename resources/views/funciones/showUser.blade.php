@@ -24,7 +24,68 @@
     .movie-ficha {
         display: flex color: white;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
 
+    .reservation-button {
+        display: inline-block;
+        position: relative;
+    }
+
+    .btn {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+        overflow: hidden;
+    }
+
+    .btn-primary {
+        background-color: #0d6975;
+    }
+
+    .btn-text {
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn-background {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: #025974;
+
+        transition: transform 0.3s ease;
+    }
+
+
+    .btn-slide {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        transition: left 0.3s ease;
+    }
+
+    .btn:hover .btn-background {
+        transform: scaleX(1);
+    }
+
+    .btn:hover .btn-slide {
+        left: 0;
     }
 </style>
 
@@ -84,8 +145,7 @@
         </div>
     </nav>
     <div class="container mt-5"
-        style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white;     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    ">
+        style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
         <div class="row">
             <div class="col-md-4 m-2">
                 @if ($funcion->imagen)
@@ -100,14 +160,17 @@
                 <p>Fecha de la función: {{ $funcion->fecha }}</p>
                 <p>Horario: {{ $funcion->hora }}</p>
                 <p>Descripción: {{ $funcion->descripcion }}</p>
-
                 <div class="reservation-button">
-                    <a href="{{ route('funciones.reservar', $funcion->id) }}" class="btn btn-primary">RESERVAR</a>
+                    <a href="{{ route('funciones.reservar', $funcion->id) }}" class="btn btn-primary">
+                        <span class="btn-text">CREAR RESERVA</span>
+                        <span class="btn-background"></span>
+                        <span class="btn-slide"></span>
+                    </a>
                 </div>
+                <br>
             </div>
         </div>
     </div>
-    <br>
     </div>
 
     <footer>

@@ -139,7 +139,7 @@
         </div>
         <br>
 
-        <div class="container text-center">
+        <div class="container-fluid text-center">
             <div class="row">
                 @foreach ($funciones as $funcion)
                     <div class="col-md-4 mb-4">
