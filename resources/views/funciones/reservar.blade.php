@@ -121,7 +121,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-2 mb-5">
+                <div class="col-md-5 mb-5">
                     <div id="fichaAsientos" class="text-center">
                         <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="GET">
                             @csrf
