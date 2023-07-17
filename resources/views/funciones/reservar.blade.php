@@ -23,7 +23,6 @@
 <style>
     .movie-ficha {
         display: flex
-        color: white;
     }
 
 </style>

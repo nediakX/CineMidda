@@ -151,7 +151,7 @@
                                 <div class="title">{{ $funcion->titulo }}</div>
                             </a>
                             <div class="details">
-                                <p>Detalles de la función:</p>
+                                <strong>Detalles de la función</strong>
                                 <p>Asientos: {{ $funcion->asientosDisponibles }} / {{ $funcion->numero_reservas }}</p>
                                 <p>Fecha: {{ $funcion->fecha }}</p>
                                 <p>Hora: {{ $funcion->hora }}</p>
