@@ -43,7 +43,7 @@
             border-radius: 15px;
             margin-bottom: 10px;
             box-sizing: border-box;
-            font-size: 20px;
+            font-size: 23px;
         }
 
         #formularioRegistro button {
