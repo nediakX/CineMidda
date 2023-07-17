@@ -132,19 +132,6 @@ textarea {
     color: white;
 }
 
-#navbar {
-    background: rgba(102, 165, 173, 0.5);
-    position: sticky;
-    top: 0;
-    font-family: Inter;
-    overflow: hidden;
-    z-index: 100;
-}
-
-#navbar img {
-    display: flex;
-}
-
 #fichaAsientos {
     height: 416px;
     width: 668px;
@@ -410,6 +397,18 @@ a{
     margin-top: 0.7cm;
 }
 
+#navbar {
+    background: rgba(102, 165, 173, 0.5);
+    position: sticky;
+    top: 0;
+    font-family: Inter;
+    overflow: hidden;
+}
+
+#navbar img {
+    display: flex;
+}
+
 #navbar a {
     float: right;
     display: block;
@@ -419,7 +418,6 @@ a{
     text-decoration: none;
     font-size: 24px;
 }
-
 
 #navbar button {
     font-size: 25px;

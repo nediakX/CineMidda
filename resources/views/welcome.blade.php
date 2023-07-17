@@ -15,7 +15,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -26,21 +26,21 @@
     <div id="navbar" class="no-margin">
         @if (Route::has('login'))
             @auth
-                <form method="POST" action="{{ secure_url('logout') }}">
+                <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : secure_url('/dashboard') }}">PANEL DE
+                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
                         CONTROL</a>
                 </form>
             @else
-                <a href="{{ secure_url('login') }}">INICIAR SESION</a>
-                <a href="{{ secure_url('register') }}">REGISTRO</a>
+                <a href="{{ route('login') }}">INICIAR SESION</a>
+                <a href="{{ route('register') }}">REGISTRO</a>
             @endauth
         @endif
-        <a href="{{ secure_url('contacto') }}">CONTACTO</a>
-        <a href="{{ secure_url('cartelera') }}">CARTELERA</a>
+        <a href="{{ route('contacto') }}">CONTACTO</a>
+        <a href="{{ route('cartelera') }}">CARTELERA</a>
         <a href="/">INICIO</a>
-        <img src="{{ secure_asset('images/cine en el midda.png') }}" alt="CineMiddaLogo" style="width: 500px;">
+        <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
     </div>
     <div class="welcome-container">
         @foreach ($funciones as $funcion)
@@ -74,31 +74,28 @@
 
         <div class="container text-center">
             <div class="row">
-                <div class="col">
-                    <div class="mapa">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                             width="600" height="450"
-                            style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"></iframe>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md-6">
                     <br><br>
                     <div class="row">
-
-                        <h1>¿Donde Encontrarnos?</h1>
+                        <h1>¿Dónde Encontrarnos?</h1>
                         <p></p>
-                        <h2>Estacion Cultural Pueblo Hundido</h2>
-                        <h2>Calle Juan Martinez de Rosa #1103</h2>
-
+                        <h2>Estación Cultural Pueblo Hundido</h2>
+                        <h2>Calle Juan Martínez de Rosa #1103</h2>
                     </div>
                     <hr>
                     <div class="row">
                         <h1>Horarios</h1>
                         <h2>Jueves desde las 18:00 </h2>
                         <h2>Viernes desde las 17:30</h2>
-
                     </div>
                 </div>
             </div>
