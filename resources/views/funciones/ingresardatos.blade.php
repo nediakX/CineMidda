@@ -78,7 +78,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container main-container" style="margin-top: 40px;">
         <div class="row">
             <div class="col-sm-12 col-md-4 mx-auto mb-5">
@@ -119,8 +118,6 @@
             </div>
         </div>
     </div>
-
-
     <footer>
         <div class="bottom">
             <div class="col">
