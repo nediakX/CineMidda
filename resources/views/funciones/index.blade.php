@@ -14,7 +14,11 @@
                         Crear Nueva Función
                     </a>
                 </div>
-
+                @if (session('error'))
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" style="border-radius: 10px" role="alert">
+                        <strong class="font-bold">{{ session('error') }}</strong>
+                    </div>
+                @endif
                 <div class="flex justify-center">
                     <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
@@ -54,7 +58,7 @@
                                                     <td class="px-6 py-4">{{ $funcion->numero_reservas }}</td>
                                                     <td class="px-6 py-4">
                                                         <div class="flex justify-center items-center">
-                                                            <!--Ver Funcion -->
+                                                            <!-- Ver Funcion -->
                                                             <a href="{{ route('funciones.show', $funcion->id) }}"
                                                                 class="mr-3 rounded bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4">Ver
                                                                 Detalles</a>
@@ -104,22 +108,32 @@
                 event.stopPropagation();
 
                 var tituloFuncion = this.dataset.titulo;
+                var reservas = parseInt(this.dataset.reservas);
 
-                Swal.fire({
-                    title: '¿Desea eliminar la función?',
-                    text: 'Titulo de la funcion: ' + tituloFuncion,
-                    icon: 'info',
-                    showCancelButton: true,
-                    confirmButtonColor: '#20c997',
-                    cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'Confirmar'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        this.submit();
-                        Swal.fire('¡Ha sido eliminado!',
-                            'La función ha sido eliminada correctamente.', 'success');
-                    }
-                });
+                if (reservas > 0) {
+                    Swal.fire({
+                        title: 'No se puede eliminar la función',
+                        text: 'La función tiene reservas asociadas.',
+                        icon: 'error',
+                        confirmButtonText: 'Aceptar'
+                    });
+                } else {
+                    Swal.fire({
+                        title: '¿Desea eliminar la función?',
+                        text: 'Titulo de la funcion: ' + tituloFuncion,
+                        icon: 'info',
+                        showCancelButton: true,
+                        confirmButtonColor: '#20c997',
+                        cancelButtonColor: '#6c757d',
+                        confirmButtonText: 'Confirmar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            this.submit();
+                            Swal.fire('¡Ha sido eliminado!',
+                                'La función ha sido eliminada correctamente.', 'success');
+                        }
+                    });
+                }
             }, false);
         });
     })();

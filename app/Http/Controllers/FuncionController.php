@@ -255,9 +255,20 @@ class FuncionController extends Controller
     public function destroy($id)
     {
         $funcion = Funcion::findOrFail($id);
+
+        $reservas = Reserva::where('funcion_id', $funcion->id)->get();
+
+        if ($reservas->count() > 0) {
+            $mensajeError = "No se puede eliminar la función porque tiene reservas asociadas. Elimina las reservas primero.";
+            return redirect()->route('funciones.index')->with('error', $mensajeError);
+        }
+
         $funcion->delete();
-        return redirect()->route('funciones.index');
+
+        return redirect()->route('funciones.index')->with('success', 'La función se ha eliminado exitosamente.');
     }
+
+
     public function destroyReserva($id)
     {
         $reserva = Reserva::findOrFail($id);
