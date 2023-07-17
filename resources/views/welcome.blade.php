@@ -144,7 +144,8 @@
             <div class="row">
                 @foreach ($funciones as $funcion)
                     <div class="col-md-4 mb-4">
-                        <div class="function-card">
+                        <div class="function-card"
+                            style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
                             <a href="{{ route('funciones.show', $funcion->id) }}">
                                 <img src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función">
                                 <div class="title">{{ $funcion->titulo }}</div>

@@ -22,10 +22,10 @@
 
 <style>
     .movie-ficha {
-        display: flex
-        color: white;
-    }
+        display: flex color: white;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+    }
 </style>
 
 <body class="antialiased">
@@ -83,16 +83,19 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-5" style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white">
+    <div class="container mt-5"
+        style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white;     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    ">
         <div class="row">
             <div class="col-md-5 m-2">
                 @if ($funcion->imagen)
-                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función" width="500">
+                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
+                        width="500">
                 @else
                     <p>No se ha cargado una imagen para esta película.</p>
                 @endif
             </div>
-            <div class="col-md-5 mt-5 movie-ficha">
+            <div class="col-md-5 mt-5">
                 <h1>{{ $funcion->titulo }}</h1>
                 <p>Fecha de la función: {{ $funcion->fecha }}</p>
                 <p>Horario: {{ $funcion->hora }}</p>
