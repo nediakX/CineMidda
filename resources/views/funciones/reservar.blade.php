@@ -28,9 +28,11 @@
     @media (max-width: 767px) {
         .image {
             max-width: 100%;
+            height: auto;
         }
 
         #fichaAsientos {
+            margin-top: 20px;
             width: 100%
         }
 
@@ -105,7 +107,7 @@
                         {{ $errors->first('asientos_seleccionados') }}
                     </div>
                 @endif
-                <div class="col-md-6 mb-5">
+                <div class="col-md-6 mb-4">
                     <div class="image-container text-center">
                         <div id="imagenFicha">
                             @if ($funcion->imagen)
@@ -119,7 +121,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 mb-5 mt-5">
+                <div class="col-md-6 mb-5">
                     <div id="fichaAsientos" class="text-center">
                         <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="POST">
                             @csrf
