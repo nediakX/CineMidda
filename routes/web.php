@@ -45,8 +45,6 @@ Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReser
 
 Route::GET('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
 
-Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
-
 
 Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');
 
