@@ -22,12 +22,23 @@
             font-family: 'Inter', sans-serif;
         }
 
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
         #formularioRegistro {
+            position: relative;
+            z-index: 1;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin: 20px;
             padding: 20px;
-        }
+            }
 
         #formularioRegistro img {
             max-width: 100%;
@@ -60,6 +71,7 @@
 
     </style>
 </head>
+
 <body class="bg-animate">
     <div class="d-flex justify-content-center">
         <div id="formularioRegistro">
@@ -123,29 +135,29 @@
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border-radius: 16px; width: 264px;
                     height: 63px;">Registrarse</button>
+                    </div>
                 </div>
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
                     {{ __('Ya estoy registrado') }}
                 </a>
             </form>
             <br>
-            </label>
-            <br>
             <x-validation-errors/>
 
         </div>
-        <div class="bubbles">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-        </div>
+    </div>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
 
 </body>
 
