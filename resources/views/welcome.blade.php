@@ -67,6 +67,7 @@
         opacity: 1;
     }
 </style>
+
 <body class="antialiased">
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="/">
@@ -99,8 +100,11 @@
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit" class="flex items-center space-x-2 text-gray-500">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="red">
-                                            <path fill-rule="evenodd" d="M10 1a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.707 6.707a1 1 0 0 1 1.414-1.414L10 8.586l2.879-2.879a1 1 0 1 1 1.414 1.414L11.414 10l2.879 2.879a1 1 0 0 1-1.414 1.414L10 11.414l-2.879 2.879a1 1 0 0 1-1.414-1.414L8.586 10 5.707 7.121A1 1 0 0 1 5.707 6.707z" clip-rule="evenodd" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                            fill="red">
+                                            <path fill-rule="evenodd"
+                                                d="M10 1a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM5.707 6.707a1 1 0 0 1 1.414-1.414L10 8.586l2.879-2.879a1 1 0 1 1 1.414 1.414L11.414 10l2.879 2.879a1 1 0 0 1-1.414 1.414L10 11.414l-2.879 2.879a1 1 0 0 1-1.414-1.414L8.586 10 5.707 7.121A1 1 0 0 1 5.707 6.707z"
+                                                clip-rule="evenodd" />
                                         </svg>
                                         <span>Salir</span>
                                     </button>
@@ -157,6 +161,27 @@
             </div>
         </div>
     </div>
+</body>
+
+<footer>
+    <div class="bottom">
+        <div class="col">
+            <br>
+            Fono: +56 9 5321 9670
+            <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
+                    style="float: right;"></a><a
+                href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img src="/icons/whatsapp.png"
+                    alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
+            <br>
+            Correo: correomidda@midda.cl
+            <br>
+        </div>
+        <br>
+        <p style="font-style: italic; color: rgba(196, 223, 230, 0.38); text-align: center;"> ® Proyecto de Museo
+            Interactivo Digital Diego de Almagro, Area Cine y Eventos - 2023</p>
+        <br>
+    </div>
+</footer>
 </body>
 
 </html>
