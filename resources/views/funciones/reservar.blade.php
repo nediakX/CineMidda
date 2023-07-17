@@ -25,12 +25,28 @@
         display: flex
     }
 
+    @media (max-width: 767px) {
+        .image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #fichaAsientos {
+            margin-top: 20px;
+            width: 100%
+        }
+
+        .asientos-table {
+            width: 100%;
+        }
+    }
+
 </style>
 
 <body class="antialiased">
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <a class="navbar-brand" href="/">
-            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 360px;">
+            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
         </a>
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -91,76 +107,71 @@
                         {{ $errors->first('asientos_seleccionados') }}
                     </div>
                 @endif
-                <div class="col-md-3 order-md-2">
-                    <div class="image-container">
+                <div class="col-md-6 mb-4">
+                    <div class="image-container text-center">
                         <div id="imagenFicha">
                             @if ($funcion->imagen)
-                                <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
-                                    alt="Imagen de la función" width="275" height="396">
+                            <img class="image img-fluid" src="{{ '/storage/imagen/' . $funcion->imagen }}"
+                                alt="Imagen de la función">
                             @else
-                                <p>No se ha cargado una imagen para esta película.</p>
+                            <p>No se ha cargado una imagen para esta película.</p>
                             @endif
-                            <h4 class="mt-4 text-center">Pelicula: {{ $funcion->titulo }}</h4>
                         </div>
+                        <h4 class="mt-4">Película: {{ $funcion->titulo }}</h4>
                     </div>
                 </div>
-                <div class="col-md-6 order-md-1">
+
+                <div class="col-md-6 mb-5">
                     <div id="fichaAsientos" class="text-center">
                         <form action="{{ route('funciones.ingresardatos', ['id' => $funcion->id]) }}" method="POST">
                             @csrf
-                            <input type="hidden" name="asientos_seleccionados" id="asientosSeleccionadosInput"
-                                value="">
+                            <input type="hidden" name="asientos_seleccionados" id="asientosSeleccionadosInput" value="">
                             <input type="hidden" name="funcionid" id="funcionid" value="{{ $funcion->id }}">
                             <h1>Escoja un asiento por favor</h1>
-                            <table class="asientos-table mx-auto">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        @php
+                            <div class="table-responsive">
+                                <table class="asientos-table mx-auto">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            @php
                                             $numFilas = ceil($asientosDisponibles / 6);
                                             $numColumnas = ceil($asientosDisponibles / $numFilas);
-                                        @endphp
-                                        @for ($columna = 1; $columna <= $numColumnas; $columna++)
-                                            <th>{{ $columna }}</th>
-                                        @endfor
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php
+                                            @endphp
+                                            @for ($columna = 1; $columna <= $numColumnas; $columna++) <th>{{ $columna }}
+                                                </th>
+                                                @endfor
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
                                         $numAsiento = 1;
                                         $letrasFila = range('A', 'Z');
-                                    @endphp
-                                    @for ($fila = 0; $fila < $numFilas; $fila++)
-                                        <tr>
+                                        @endphp
+                                        @for ($fila = 0; $fila < $numFilas; $fila++) <tr>
                                             <th>{{ $letrasFila[$fila] }}</th>
-                                            @for ($columna = 1; $columna <= $numColumnas; $columna++)
-                                                @php
-                                                    $numAsientoActual = $fila * $numColumnas + $columna;
-                                                    $asientoOcupado = in_array($numAsientoActual, $asientosOcupados);
-                                                @endphp
-                                                <td>
-                                                    @if ($numAsiento <= $asientosDisponibles)
-                                                        <div class="asiento
-                                                            {{ $asientoOcupado ? 'ocupado' : 'disponible' }}
-                                                            {{ $asientoOcupado ? 'no-seleccionable' : '' }}"
-                                                            onclick="seleccionarAsiento(this)"
-                                                            {{ $asientoOcupado ? 'disabled' : '' }}>
-                                                            <span>{{ $numAsiento }}</span>
-                                                        </div>
-                                                        @php
-                                                            $numAsiento++;
-                                                        @endphp
-                                                    @endif
-                                                </td>
-                                            @endfor
-                                        </tr>
-                                    @endfor
-                                </tbody>
+                                            @for ($columna = 1; $columna <= $numColumnas; $columna++) @php
+                                                $numAsientoActual=$fila * $numColumnas + $columna;
+                                                $asientoOcupado=in_array($numAsientoActual, $asientosOcupados); @endphp <td>
+                                                @if ($numAsiento <= $asientosDisponibles) <div class="asiento
+                                                                {{ $asientoOcupado ? 'ocupado' : 'disponible' }}
+                                                                {{ $asientoOcupado ? 'no-seleccionable' : '' }}"
+                                                    onclick="seleccionarAsiento(this)" {{ $asientoOcupado ? 'disabled' : ''
+                                                    }}>
+                                                    <span>{{ $numAsiento }}</span>
+                            </div>
+                            @php
+                            $numAsiento++;
+                            @endphp
+                            @endif
+                            </td>
+                            @endfor
+                            </tr>
+                            @endfor
+                            </tbody>
                             </table>
                             <button class="mt-5" type="submit">Aceptar</button>
                         </form>
                         <div id="asientosSeleccionadosContainer" class="mt-3 funciones-seleccionadas"></div>
-
                     </div>
                 </div>
             </div>
