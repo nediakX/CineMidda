@@ -87,10 +87,10 @@
         style="background-color: rgba(0, 59, 70, 0.5); border-radius:15px; color:white;     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     ">
         <div class="row">
-            <div class="col-md-5 m-2">
+            <div class="col-md-4 m-2">
                 @if ($funcion->imagen)
                     <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
-                        width="500">
+                        width="350">
                 @else
                     <p>No se ha cargado una imagen para esta película.</p>
                 @endif

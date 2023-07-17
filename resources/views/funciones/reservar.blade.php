@@ -91,7 +91,7 @@
                         {{ $errors->first('asientos_seleccionados') }}
                     </div>
                 @endif
-                <div class="col-md-6 order-md-2">
+                <div class="col-md-3 order-md-2">
                     <div class="image-container">
                         <div id="imagenFicha">
                             @if ($funcion->imagen)
