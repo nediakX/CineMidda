@@ -8,7 +8,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="p-6">
+                <div class="p-6 overflow-x-auto">
                     <form action="{{ secure_url('dashboard') }}" method="GET" id="filter-form">
                         <div class="flex flex-wrap -mx-3 mb-4">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -45,49 +45,51 @@
                     </form>
                 </div>
 
-                <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Nombre</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                RUT</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Función</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Numero de asientos</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody class="bg-white divide-y divide-gray-200">
-                        @if ($reservas->isEmpty())
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <td colspan="8" class="px-6 py-4 text-center">No hay reservas
-                                    disponibles.</td>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Nombre</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    RUT</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Función</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Numero de asientos</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Acciones</th>
                             </tr>
-                        @else
-                            @foreach ($reservas as $reserva)
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            @if ($reservas->isEmpty())
                                 <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->nombre }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->rut }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <form action="{{ route('funciones.destroyReserva', $reserva->id) }}"
-                                            method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="text-red-600 hover:text-red-900">Eliminar</button>
-                                        </form>
-                                    </td>
+                                    <td colspan="8" class="px-6 py-4 text-center">No hay reservas
+                                        disponibles.</td>
                                 </tr>
-                            @endforeach
+                            @else
+                                @foreach ($reservas as $reserva)
+                                    <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->nombre }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->rut }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <form action="{{ route('funciones.destroyReserva', $reserva->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="text-red-600 hover:text-red-900">Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
 
-                        @endif
-                    </tbody>
-                </table>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
