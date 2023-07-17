@@ -419,18 +419,6 @@ a{
     font-size: 24px;
 }
 
-#navbar button {
-    font-size: 25px;
-    background-color: #d90000;
-    float: right;
-    color: white;
-    margin-top: 23px;
-    margin-right: 10px;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
 .iconMain {
     font-family: 'Ink Free';
     font-style: normal;

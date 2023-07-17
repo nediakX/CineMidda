@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="antialiased" style="margin-top: -90px;">
+<body class="antialiased">
     <nav id="navbar" class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="/">
             <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
@@ -36,6 +36,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cartelera') }}">CARTELERA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
+                    </li>
                     @if (Route::has('login'))
                         @auth
                             <li class="nav-item">
@@ -51,22 +60,13 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">INICIAR SESION</a>
+                                <a class="nav-link" href="{{ route('register') }}">REGISTRO</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">REGISTRO</a>
+                                <a class="nav-link" href="{{ route('login') }}">INICIAR SESION</a>
                             </li>
                         @endauth
                     @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('cartelera') }}">CARTELERA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">INICIO</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -141,8 +141,8 @@
                 Fono: +56 9 5321 9670
                 <a href="https://web.facebook.com/MidDA2022"><img src="/icons/facebook.png" alt="Facebook midDa"
                         style="float: right;"></a>
-                <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img
-                        src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
+                <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!"><img src="/icons/whatsapp.png"
+                        alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
                 <br>
                 Correo: correomidda@midda.cl
                 <br>

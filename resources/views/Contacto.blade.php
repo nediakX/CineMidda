@@ -17,28 +17,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="/css/style.css">
-    
+
 </head>
 
 <body style="background: #C4DFE6">
-    <div id="navbar">
-        @if (Route::has('login'))
-            @auth
-                <form method="POST" action="/logout">
-                    @csrf
-                    <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
-                </form>
-            @else
-                <a href="{{ route('login') }}">INICIAR SESION</a>
-                <a href="{{ route('register') }}">REGISTRO</a>
-            @endauth
-        @endif
-        <a href="{{ route('contacto') }}">CONTACTO</a>
-        <a href="{{ route('cartelera') }}">CARTELERA</a>
-        <a href="/">INICIO</a>
-        <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
-    </div>
+    <nav id="navbar" class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+            <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
+        </a>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cartelera') }}">CARTELERA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
+                    </li>
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="nav-link btn btn-link">Salir</button>
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL
+                                    DE CONTROL</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">REGISTRO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">INICIAR SESION</a>
+                            </li>
+                        @endauth
+                    @endif
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <br>
     <div class="container text-center">
