@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iniciar Sesion</title>
+    <title>Iniciar Sesión</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/x-icon" href="/icons/favicon/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,6 +15,50 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/css/styleAdmin.css">
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #formulario {
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 30px;
+        }
+
+        #formulario img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #formulario input[type="email"],
+        #formulario input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 23px;
+        }
+
+        #formulario button {
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+
+    </style>
 </head>
 
 <body class="bg-animate">
