@@ -38,12 +38,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::delete('/Funciones/destroyReserva/{id}', [FuncionController::class, 'destroyReserva'])->name('funciones.destroyReserva');
 });
 
-Route::middleware(['guest'])->group(function () {
-    Route::get('/funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('funciones.reservar');
-    Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
-    Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
+Route::get('/funciones/{id}/reservar', [FuncionController::class, 'reservarAsientos'])->name('funciones.reservar');
 
-});
+Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
+
+Route::post('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
+
 
 Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');
 
