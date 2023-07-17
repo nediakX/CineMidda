@@ -14,48 +14,43 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="container mx-auto p-6">
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <h1 class="text-3xl font-bold">{{ $funcion->titulo }}</h1>
                             <p class="text-gray-600">{{ $funcion->descripcion }}</p>
-                            <p><strong>Fecha de la funcion:</strong> {{ $funcion->fecha }}</p>
+                            <p><strong>Fecha de la función:</strong> {{ $funcion->fecha }}</p>
                             <p><strong>Horario:</strong> {{ $funcion->hora }}</p>
                             <p><strong>Número total de reservas:</strong> {{ $funcion->numero_reservas }}</p>
                             <p><strong>Asientos disponibles:</strong> {{ $asientosDisponibles }}</p>
                         </div>
                         <div>
                             @if ($funcion->imagen)
-                                <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
+                                <img class="image mx-auto" src="{{ '/storage/imagen/' . $funcion->imagen }}"
                                     alt="Imagen de la función" width="520">
                             @else
                                 <p>No se ha cargado una imagen para esta película.</p>
                             @endif
                         </div>
+                    </div>
+                    <div class="mt-4 flex justify-center">
                         <form action="{{ route('funciones.destroy', $funcion->id) }}" method="POST"
                             class="formEliminar" data-titulo="{{ $funcion->titulo }}">
                             @csrf
                             @method('DELETE')
-                            <td>
-                                <tr>
-                                    <a href="{{ route('funciones.index') }}"
-                                        class="ml-2 rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2.5 px-4">Volver</a>
-                                </tr>
-                                <tr>
-                                    <a href="{{ route('funciones.edit', $funcion->id) }}"
-                                        class="ml-3 rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2.5 px-4">Editar
-                                        Funcion</a>
-                                </tr>
-                                <tr>
-                                    <button type="submit"
-                                        class="ml-3 rounded bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4">Eliminar
-                                        Funcion</button>
-                                </tr>
-                            </td>
+                            <div class="space-x-2">
+                                <a href="{{ route('funciones.index') }}"
+                                    class="rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 md-1">Volver</a>
+                                <a href="{{ route('funciones.edit', $funcion->id) }}"
+                                    class="rounded bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4">Editar Función</a>
+                                <button type="submit"
+                                    class="rounded bg-red-600 hover:bg-red-600 text-white font-bold py-2 px-4 mt-4">Eliminar Función</button>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </x-app-layout>
