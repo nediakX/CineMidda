@@ -18,36 +18,66 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 </head>
 
 <body class="antialiased" style="margin-top: -90px;">
-    <div id="navbar" class="no-margin">
-        @if (Route::has('login'))
-            @auth
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    <button type="submit">Salir</button>
-                    <a href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE
-                        CONTROL</a>
-                </form>
-            @else
-                <a href="{{ route('login') }}">INICIAR SESION</a>
-                <a href="{{ route('register') }}">REGISTRO</a>
-            @endauth
-        @endif
-        <a href="{{ route('contacto') }}">CONTACTO</a>
-        <a href="{{ route('cartelera') }}">CARTELERA</a>
-        <a href="/">INICIO</a>
-        <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
-    </div>
+    <nav id="navbar" class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/images/cine en el midda.png" alt="CineMiddaLogo" style="width: 500px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto">
+                    @if (Route::has('login'))
+                        @auth
+                            <li class="nav-item">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="nav-link btn btn-link">Salir</button>
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link"
+                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL
+                                    DE CONTROL</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">INICIAR SESION</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">REGISTRO</a>
+                            </li>
+                        @endauth
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('cartelera') }}">CARTELERA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">INICIO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="welcome-container">
         @foreach ($funciones as $funcion)
             <a href="{{ route('funciones.show', $funcion->id) }}">
                 <div class="welcome-function">
-                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}"
-                        alt="Imagen de la función" style="width: 700px; height: 800px">
+                    <img class="image" src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función"
+                        style="width: 700px; height: 800px">
                     <div class="title">{{ $funcion->titulo }}
                         <br>
                         Reserve Aqui - Disponibles
@@ -78,8 +108,8 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                            width="600" height="450"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600"
+                            height="450"
                             style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"></iframe>
                     </div>
                 </div>
