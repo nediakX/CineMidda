@@ -13,60 +13,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Jura:wght@500&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="/css/styleAdmin.css">
 </head>
 
 <body class="bg-animate">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div id="formulario" class="col-lg-6 col-md-8 col-sm-10">
-                <br>
-                <form method="POST" action="{{ route('login') }}">
-                    @csrf
-                    <div class="text-center">
+    <div class="d-flex justify-content-center">
+        <div id="formulario">
+            <br>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="row">
+                    <div class="col">
                         <img src="/images/cine en el midda admin.png" alt="">
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col">
-                            <p>Correo</p>
-                        </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <p>Correo</p>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="email" name="email" id="email" required placeholder="Ingrese su correo electrónico"
-                                autofocus class="form-control">
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <input type="email" name="email" id="email" required placeholder="Ingrese su correo electrónico"
+                            autofocus>
                     </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col">
-                            <p>Contraseña</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <input type="password" name="password" id="password" required
-                                placeholder="Ingrese su contraseña" class="form-control">
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="submit" name="enviar" class="btn btn-primary">Iniciar Sesión</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
                 <p></p>
-                <div class="forget text-center">
-                    ¿Ha olvidado su contraseña? <a href="{{ route('password.request') }}">¡Haga clic aquí!</a>
+                <div class="row">
+                    <div class="col">
+                        <p>Contraseña</p>
+                    </div>
                 </div>
-                <div class="register text-center">
-                    <a href="/register">Regístrate</a> | <a href="/">Volver</a>
+                <div class="row">
+                    <div class="col">
+                        <input type="password" name="password" id="password" required
+                            placeholder="Ingrese su contraseña">
+                    </div>
                 </div>
-                <x-validation-errors class="mt-5" />
+                <br>
+                <div class="row">
+                    <div>
+                        <button type="submit" name="enviar" style="color: white;background: #0C6D7E;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 16px; width: 264px;
+                    height: 63px;">Iniciar Sesión</button>
+                    </div>
+            </form>
+            <p></p>
+            <div class="forget">
+                ¿Ha olvidado su contraseña? <a href="{{ route('password.request') }}">¡Haga clic aquí!</a>
             </div>
-        </div>
+            <div class="register">
+                <a href="/register">Regístrate</a> | <a href="/">Volver</a>
+            </div>
+            <x-validation-errors class="mt-5" />
+        </label>
     </div>
     <div class="bubbles">
         <div class="bubble"></div>
@@ -80,6 +83,7 @@
         <div class="bubble"></div>
         <div class="bubble"></div>
     </div>
+
 </body>
 
 </html>
