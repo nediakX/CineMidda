@@ -100,23 +100,19 @@
                         <input type="hidden" name="funcionid" id="funcionid" value="{{ $funcionid }}">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre:</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm"
-                                placeholder="Ingrese su nombre" required>
+                            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm" placeholder="Ingrese su nombre" required>
                         </div>
                         <div class="mb-3">
                             <label for="rut" class="form-label">RUT:</label>
-                            <input type="text" name="rut" id="rut" class="form-control form-control-sm"
-                                placeholder="12345678-9" required>
+                            <input type="text" name="rut" id="rut" class="form-control form-control-sm" placeholder="12345678-9" required>
                         </div>
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono:</label>
-                            <input type="text" name="telefono" id="telefono"
-                                class="form-control form-control-sm" placeholder="Ingrese su teléfono" required>
+                            <input type="text" name="telefono" id="telefono" class="form-control form-control-sm" placeholder="Ingrese su teléfono" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" name="email" id="email" class="form-control form-control-sm"
-                                placeholder="Ingrese su correo electrónico" required>
+                            <input type="email" name="email" id="email" class="form-control form-control-sm" placeholder="Ingrese su correo electrónico" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
                     </form>
