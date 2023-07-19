@@ -35,6 +35,14 @@ class FuncionController extends Controller
         return view('funciones.create');
     }
 
+    public function reservas()
+    {
+        $user = Auth::user();
+        $reservas = Reserva::where('email', $user->email)->get();
+        return view('administracion-user.reservas', compact('reservas'));
+    }
+
+
     public function store(Request $request)
     {
         $request->validate([

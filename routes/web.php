@@ -42,10 +42,10 @@ Route::get('/funciones/{id}/reservar', [FuncionController::class, 'reservarAsien
 
 Route::post('/funciones/{id}/reservar', [FuncionController::class, 'guardarReserva'])->name('funciones.guardarReserva');
 
-
 Route::GET('/funciones/{id}/ingresardatos', [FuncionController::class, 'ingresardatos'])->name('funciones.ingresardatos');
-
 
 Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartelera');
 
 Route::get('/contacto', [FuncionController::class, 'contacto'])->name('contacto');
+
+Route::get('/reservas', [FuncionController::class, 'reservas'])->name('reservas');

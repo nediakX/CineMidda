@@ -19,6 +19,16 @@
                 </div>
 
                 @auth
+                    @if (auth()->user()->role === 'user')
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                            <x-nav-link href="{{ route('reservas') }}" :active="request()->routeIs('reservas')">
+                                {{ __('Reservas') }}
+                            </x-nav-link>
+                        </div>
+                    @endif
+                @endauth
+
+                @auth
                     @if (auth()->user()->role === 'admin')
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -201,6 +211,17 @@
                 {{ __('Cartelera Mensual') }}
             </x-responsive-nav-link>
         </div>
+
+        @auth
+            @if (auth()->user()->role === 'user')
+                <div class="pt-2 pb-3 space-y-1">
+                    <x-responsive-nav-link href="{{ route('reservas') }}" :active="request()->routeIs('reservas')">
+                        {{ __('Mis Reservas') }}
+                    </x-responsive-nav-link>
+                </div>
+            @endif
+        @endauth
+
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('welcome')" :active="request()->routeIs('welcome')">
                 {{ __('Pagina de Inicio') }}
@@ -239,7 +260,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}" x-data>
                     @csrf
-
                     <x-responsive-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
                         {{ __('Cerrar Sesion') }}
                     </x-responsive-nav-link>
