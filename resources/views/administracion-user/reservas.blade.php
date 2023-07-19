@@ -17,7 +17,8 @@
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">RUT</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Función</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Número de asientos</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Número de asiento</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código de validación</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -27,9 +28,11 @@
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->rut }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->codigo_validacion }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
+
                         </table>
                     @endif
                 </div>

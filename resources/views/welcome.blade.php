@@ -93,7 +93,8 @@
                         @auth
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL DE CONTROL</a>
+                                    href="{{ Auth::user()->role === 'user' ? route('profile.show') : url('/dashboard') }}">PANEL
+                                    DE CONTROL</a>
                             </li>
                             <li class="nav-item">
                                 <form method="POST" action="{{ route('logout') }}">
@@ -136,6 +137,11 @@
                 </div>
             </div>
             <hr>
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <br>
 
@@ -143,8 +149,7 @@
             <div class="row">
                 @foreach ($funciones as $funcion)
                     <div class="col-md-4 mb-4">
-                        <div class="function-card"
-                            style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
+                        <div class="function-card" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);">
                             <a href="{{ route('funciones.show', $funcion->id) }}">
                                 <img src="{{ '/storage/imagen/' . $funcion->imagen }}" alt="Imagen de la función">
                                 <div class="title">{{ $funcion->titulo }}</div>

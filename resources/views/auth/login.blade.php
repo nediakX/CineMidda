@@ -71,8 +71,6 @@
             color: red;
             font-size: 14px;
         }
-
-
     </style>
 </head>
 
@@ -95,10 +93,10 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input type="email" name="email" id="email" required placeholder="Ingrese su correo electrónico"
-                            autofocus>
+                        <input type="email" name="email" id="email" required
+                            placeholder="Ingrese su correo electrónico" autofocus>
                         @error('email')
-                        <p class="error-message">{{ $message }}</p>
+                            <p class="error-message">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -113,17 +111,19 @@
                         <input type="password" name="password" id="password" required
                             placeholder="Ingrese su contraseña">
                         @error('password')
-                        <p class="error-message">{{ $message }}</p>
+                            <p class="error-message">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div>
-                        <button type="submit" name="enviar" style="color: white;background: #0C6D7E;
+                        <button type="submit" name="enviar"
+                            style="color: white;background: #0C6D7E;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border-radius: 16px; width: 264px;
-                    height: 63px;">Iniciar Sesión</button>
+                    height: 63px;">Iniciar
+                            Sesión</button>
                     </div>
             </form>
             <p></p>
