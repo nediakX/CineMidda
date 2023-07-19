@@ -233,7 +233,7 @@ class FuncionController extends Controller
 
         $reserva->save();
 
-        return redirect()->route('welcome')->with('success', 'La reserva se ha guardado exitosamente. Código de validación: ' . $reserva->codigo_validacion);
+        return redirect()->route('welcome')->with('success', 'La reserva se ha guardado exitosamente. ¡Puedes ver tus reservas accediendo con el correo que proporcionaste anteriormente! Código de validación: ' . $reserva->codigo_validacion);
     }
 
 
