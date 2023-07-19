@@ -85,9 +85,8 @@
                     <h3 style="text-align: center">Asientos seleccionados:</h3>
                     <div id="asientosSeleccionadosContainer">{{ $asientos }}</div>
                     <div class="botonCancelar">
-                        <h5><a href="reservar" class="volver-atras">Elegir nuevamente</a></h5>
+                        <h5><a href="{{ route('reservar') }}">Elegir nuevamente</a></h5>
                     </div>
-
 
                 </div>
             </div>
