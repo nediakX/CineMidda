@@ -144,13 +144,3 @@
 </body>
 
 </html>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var volverAtrasLink = document.querySelector('.volver-atras');
-
-        volverAtrasLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            history.back();
-        });
-    });
-</script>
