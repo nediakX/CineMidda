@@ -17,7 +17,7 @@ class RoleMiddleware
     {
         $user = $request->user();
 
-        if ($user && $user->role === 'admin') {
+        if ($user && $user->role === 'user') {
             return $next($request);
         }
 

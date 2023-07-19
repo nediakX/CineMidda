@@ -87,7 +87,7 @@
                         <img src="/images/cine en el midda admin.png" alt="">
                     </div>
                 </div>
-                <br>
+                <br>    
                 <div class="row">
                     <div class="col">
                         <x-label for="name" value="{{ __('Nombre') }}" />
