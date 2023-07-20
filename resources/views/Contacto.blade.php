@@ -116,16 +116,16 @@
             <h2>¡Escribenos!</h2>
         </div>
         <br>
-        <form>
-            <div id="form">
+        <form action="https://formsubmit.co/vicentebarraza17@outlook.com" method="POST">
+        <div id="form">
                 <div class="row">
                     <div class="col"> Nombre</div>
                     <div class="col"> Apellido</div>
                 </div>
                 <div class="row">
-                    <div class="col"> <input name="nombre" type="text" id="name"
+                    <div class="col"> <input name="Nombre" type="text" id="name"
                             placeholder="Escriba su nombre" required autofocus></div>
-                    <div class="col"> <input name="apellido" type="text" id="lastname"
+                    <div class="col"> <input name="Apellidos" type="text" id="lastname"
                             placeholder="Escriba su apellido" required></div>
                 </div>
                 <div class="row">
@@ -143,17 +143,15 @@
                 </div>
                 <div class="row">
                     <textarea name="mitextarea" id="mitextarea" cols="40" rows="5" style="resize: none; width: 720px;"
+                    <textarea name="Comentarios" id="mitextarea" cols="40" rows="5" style="resize: none; width: 720px;"
                         placeholder="Ingrese algun comentario o sugerencia..."></textarea>
                 </div>
-                <br>
                 <div class="Submit" style="margin-left: 5cm;">
-                    <div class="g-recaptcha" data-sitekey="127.0.0.1"></div>
-                    <br />
-                    <input id="enviar" type="submit" value="Enviar"
+                    <input class="mt-5" id="enviar" type="submit" value="Enviar"
                         style="width: 137px;
-                    height: 48px; margin-left: 2.5cm; border-radius: 9px;">
-                </div>
+                    height: 48px; margin-left: 2.5cm; border-radius: 9px;"></div>
 
+                <br>
             </div>
         </form>
     </div>
