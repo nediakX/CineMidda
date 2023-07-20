@@ -133,16 +133,15 @@
                     <div class="col"> Celular</div>
                 </div>
                 <div class="row">
-                    <div class="col"> <input name="correoelec" type="email" id="email"
+                    <div class="col"> <input name="Correo Electronico" type="email" id="email"
                             placeholder="Escriba su e-mail" required></div>
-                    <div class="col"> <input name="celular" type="number" id="telephone"
+                    <div class="col"> <input name="Telefono" type="number" id="telephone"
                             placeholder="Escriba su telefono" required></div>
                 </div>
                 <div class="row">
                     <div class="col"> Comentarios</div>
                 </div>
                 <div class="row">
-                    <textarea name="mitextarea" id="mitextarea" cols="40" rows="5" style="resize: none; width: 720px;"
                     <textarea name="Comentarios" id="mitextarea" cols="40" rows="5" style="resize: none; width: 720px;"
                         placeholder="Ingrese algun comentario o sugerencia..."></textarea>
                 </div>
