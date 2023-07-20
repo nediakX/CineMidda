@@ -116,7 +116,7 @@
             <h2>¡Escribenos!</h2>
         </div>
         <br>
-        <form action="https://formsubmit.co/vicentebarraza17@outlook.com" method="POST">
+        <form action="https://formsubmit.co/middiegodealmagro@gmail.com" method="POST">
         <div id="form">
                 <div class="row">
                     <div class="col"> Nombre</div>
