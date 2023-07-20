@@ -49,15 +49,27 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Nombre</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     RUT</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Código de validación</th>
+
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Numero de telefono</th>
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Función</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th
+                                    class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Numero de asientos</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th
+                                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Acciones</th>
                             </tr>
                         </thead>
@@ -72,8 +84,10 @@
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->nombre }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->rut }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->codigo_validacion }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->telefono }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->funcion->titulo }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $reserva->asientos }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-center">{{ $reserva->asientos }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <form action="{{ route('funciones.destroyReserva', $reserva->id) }}"
                                                 method="POST">
