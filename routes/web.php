@@ -48,4 +48,8 @@ Route::get('/cartelera', [FuncionController::class, 'cartelera'])->name('cartele
 
 Route::get('/contacto', [FuncionController::class, 'contacto'])->name('contacto');
 
+
+Route::get('/viewfilm', [FuncionController::class, 'viewfilm'])->name('viewfilm');
+
+
 Route::get('/reservas', [FuncionController::class, 'reservas'])->name('reservas');

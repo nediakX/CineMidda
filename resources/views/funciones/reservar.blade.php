@@ -24,6 +24,10 @@
     .movie-ficha {
         display: flex
     }
+    .image {
+            width: 380px;
+            height: 398px;
+        }
 
     @media (max-width: 767px) {
         .image {

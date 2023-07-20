@@ -34,6 +34,12 @@ class FuncionController extends Controller
     {
         return view('funciones.create');
     }
+    public function viewfilm()
+    {
+        $funciones = Funcion::all();
+        return view('viewfilm', compact('funciones'));
+    }
+
 
     public function reservas()
     {
