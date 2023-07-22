@@ -104,7 +104,7 @@
     </nav>
 
     <div class="col">
-        <div class="container main-container" style="margin-top: 70px;">
+        <div class="container main-container" style="margin-top: 70px;" id="selecciondeasientos">
             <div class="row">
                 @if ($errors->has('asientos_seleccionados'))
                     <div class="alert alert-danger">

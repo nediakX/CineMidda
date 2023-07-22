@@ -14,6 +14,12 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -45,7 +51,7 @@
         padding: 10px;
         background-color: rgba(0, 0, 0, 0.5);
         color: #fff;
-        font-size: 18px;
+        font-size: 30px;
         font-weight: bold;
         text-align: center;
         transition: opacity 0.3s ease-in-out;
@@ -59,7 +65,7 @@
         background-color: rgba(0, 0, 0, 0.7);
         color: #fff;
         padding: 5px 10px;
-        font-size: 14px;
+        font-size: 25px;
         border-radius: 5px;
     }
 
@@ -128,12 +134,12 @@
     <div class="container main-container">
         <div class="container text-left">
             <div class="row">
-                <h1>¡Bienvenido al portal de cine para la comuna!</h1>
+                <h1 style="font-size: 80px">¡Bienvenido al portal de cine para la comuna!</h1>
             </div>
             <div class="entries">
                 <div class="row">
-                    <h4>Aquí encontrarás toda la información acerca del cine en el museo interactivo digital - midDA en
-                        Diego de Almagro.</h4>
+                    <h2 style="font-size: 40px">Aquí encontrarás toda la información acerca del cine en el museo interactivo digital - midDA en
+                        Diego de Almagro.</h2>
                 </div>
             </div>
             <hr>

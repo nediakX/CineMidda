@@ -78,7 +78,7 @@
             </div>
         </div>
     </nav>
-    <div class="container main-container" style="margin-top: 40px;">
+    <div class="container main-container" style="margin-top: 40px;" id="ingresardatos">
         <div class="row">
             <div class="col-sm-12 col-md-4 mx-auto mb-5">
                 <div class="asientos-seleccionados">
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-8 mx-auto">
-                <div class="form-container">
+                <div class="form-container" id="ingresardatosform">
                     <h2>Ingrese sus datos</h2>
                     <form action="{{ secure_url(route('funciones.reservar', ['id' => $funcionid])) }}" method="POST">
                         @csrf

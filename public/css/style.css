@@ -58,10 +58,38 @@ textarea:focus {
 }
 
 body {
-    font-family: Jura;
+    font-family: Bebas Neue;
     background: #C4DFE6;
+    color: #003B46;
 }
 
+#calendar{
+    font-family: Jura;
+}
+
+#contactomidda{
+    font-family: Jura;
+}
+
+#formSuggestions{
+    font-family: Jura;
+}
+
+#carteleramidda{
+    font-family: Jura;
+}
+
+#infofuncion{
+    font-family: Jura;
+}
+
+#selecciondeasientos{
+    font-family: Jura;
+}
+
+#ingresardatos{
+    font-family: Jura;
+}
 
 .welcome-container {
     display: flex;
@@ -172,8 +200,7 @@ textarea {
     max-width: 800px;
     color: white;
     padding: 20px;
-    height: 550px;
-
+    height: 590px;
     margin: auto;
     border-radius: 15px;
     background-color: rgba(0, 59, 70, 0.5);
@@ -190,7 +217,7 @@ textarea {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     font-family: 'Inter', sans-serif;
 }
 
@@ -198,7 +225,7 @@ textarea {
 .form-container input[type="email"] {
     width: 100%;
     padding: 8px;
-    font-size: 14px;
+    font-size: 18px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 20px;
@@ -404,8 +431,9 @@ a {
     background: rgba(102, 165, 173, 0.5);
     position: sticky;
     top: 0;
-    font-family: Inter;
     overflow: hidden;
+    font-family: inter;
+
 }
 
 #navbar img {

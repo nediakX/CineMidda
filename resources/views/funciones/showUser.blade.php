@@ -155,7 +155,7 @@
                     <p>No se ha cargado una imagen para esta película.</p>
                 @endif
             </div>
-            <div class="col-md-5 mt-5">
+            <div class="col-md-5 mt-5" id="infofuncion">
                 <h1>{{ $funcion->titulo }}</h1>
                 <p>Fecha de la función: {{ $funcion->fecha }}</p>
                 <p>Horario: {{ $funcion->hora }}</p>
