@@ -5,15 +5,12 @@ El desarrollo de un proyecto de integración de software es un proceso que impli
 Este es el apartado donde se encuentra la lista de funciones para que el usuario que ingrese pueda seleccionar alguna pelicula de su agrado.
 ![1](https://github.com/nediakX/CineMidda/assets/113554404/d596bd6b-adfc-4867-bde7-48a9b1ae6b7e)
 
+![3](https://github.com/nediakX/CineMidda/assets/113554404/6095c772-f491-4000-a8fd-88022d987378)
+
 - Inicio de sesión de Reservas CineMidda
 
 Acceso a poder registrarse en el sitio web para usuarios administadores como usuarios comunes.
 ![2](https://github.com/nediakX/CineMidda/assets/113554404/f0e78d92-b85b-4881-9098-87de0b99b743)
-
-- Seleccion de funcion web de Reservas CineMidda
-
-Aqui se muestra cuando un usuario elija una funcion, se desplegará el nombre de la pelicula.
-![3](https://github.com/nediakX/CineMidda/assets/113554404/6095c772-f491-4000-a8fd-88022d987378)
 
 - Detalles web de Reservas CineMidda | Administrador
 
@@ -34,3 +31,4 @@ En esta pagina se muestran las funciones de forma mensual, de esta manera el usu
 
 En esta pagina se podra localizar donde se encuentra la ubicación del Museo Interactivo Digital Diego de Almagro, 
 ![8](https://github.com/nediakX/CineMidda/assets/113554404/f4ad4f2b-8609-4469-b7a9-ee39f3a78422)
+![9](https://github.com/nediakX/CineMidda/assets/113554404/63e7e6d4-ff16-4baa-83e8-b6d0d0a10ff7)
