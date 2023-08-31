@@ -20,8 +20,17 @@ Aqui se muestra cuando un usuario selecciona una funcion, se desplegará el nomb
 En la siguiente imagen se muestra la funcion desde el punto de vista del administrador, el administador podra ver los detalles, eliminar o actualizar la ficha de la funcion.
 ![4](https://github.com/nediakX/CineMidda/assets/113554404/56f462ad-d578-4fca-8177-0a1d40f47357)
 
-- Inicio de la pagina web de Reservas CineMidda
+- Administracion y creacion de funciones CineMidda
 
+Al iniciar sesión como administrador, el podra utilizar el CRUD de las funciones que seran mostradas al publico al ingresar a la pagina web Cine Midda
 ![5](https://github.com/nediakX/CineMidda/assets/113554404/becce695-fad3-4096-b17b-30c63fe40110)
 
-- Inicio de la pagina web de Reservas CineMidda
+- Cartelera Mensual
+
+En esta pagina se muestran las funciones de forma mensual, de esta manera el usuario podra ver que funciones estaran disponibles en otras fechas que no se muestren en la pagina principal.
+![7](https://github.com/nediakX/CineMidda/assets/113554404/eb94a4d1-1447-4352-a687-2f1a1457cc4a)
+
+- Información de Contacto, Ubicación y Sugerencias
+
+En esta pagina se podra localizar donde se encuentra la ubicación del Museo Interactivo Digital Diego de Almagro, 
+![8](https://github.com/nediakX/CineMidda/assets/113554404/f4ad4f2b-8609-4469-b7a9-ee39f3a78422)
