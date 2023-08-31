@@ -1,3 +1,4 @@
 El desarrollo de un proyecto de integración de software es un proceso que implica la combinación de diferentes sistemas y tecnologías para lograr un objetivo común. Para esto se deben desarrollar una serie de etapas desde la definición de los requerimientos hasta la implementación y la puesta en marcha del sistema a elaborar, para ello se necesitará aplicar todos los conocimientos adquiridos a lo largo de la carrera de Analista Programador. De esta manera en esta primera parte del proyecto comprenderá la Recopilación, Análisis y Gestión de Requerimientos que serán vitales para poder elaborar un proyecto semestral.
+
 ------------------------ Inicio de la pagina web de Reservas CineMidda -------------------------
 ![1](https://github.com/nediakX/CineMidda/assets/113554404/d596bd6b-adfc-4867-bde7-48a9b1ae6b7e)
