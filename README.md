@@ -12,7 +12,7 @@ Acceso a poder registrarse en el sitio web para usuarios administadores como usu
 
 - Seleccion de funcion web de Reservas CineMidda
 
-Aqui se muestra cuando un usuario selecciona una funcion, se desplegará el nombre de la pelicula que se selecciona.
+Aqui se muestra cuando un usuario elija una funcion, se desplegará el nombre de la pelicula.
 ![3](https://github.com/nediakX/CineMidda/assets/113554404/6095c772-f491-4000-a8fd-88022d987378)
 
 - Detalles web de Reservas CineMidda | Administrador
