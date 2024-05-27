@@ -80,7 +80,7 @@
     <div class="d-flex justify-content-center">
         <div id="formularioRegistro">
             <br>
-            <form method="POST" action="{{ secure_url('register') }}">
+            <form method="POST" action="{{ ('register') }}">
                 @csrf
                 <div class="row">
                     <div class="col">
