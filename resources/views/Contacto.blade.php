@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -8,19 +8,16 @@
     <title>Contacto Cine MidDA</title>
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@500&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <!-- Script -->
@@ -92,76 +89,63 @@
                 <div class="mapa">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4618.165547895766!2d-70.04785773824828!3d-26.39141745426784!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96a319208223e9f7%3A0x6be93c15e57008c!2sEstaci%C3%B3n%20Cultural%20Pueblo%20Hundido!5e1!3m2!1ses-419!2scl!4v1683750689684!5m2!1ses-419!2scl"
-                        width="600" height="450"
-                        style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);;"
+                        width="100%" height="450"
+                        style="border-radius: 37px; box-shadow: 0px 4px 20px 3px rgba(0, 0, 0, 0.25);"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="col">
                 <br><br>
                 <div class="row">
-
                     <h1>¿Donde Encontrarnos?</h1>
                     <p></p>
                     <h2>Estacion Cultural Pueblo Hundido</h2>
                     <h2>Calle Juan Martinez de Rosa #1103</h2>
-
                 </div>
                 <hr>
                 <div class="row">
                     <h1>Horarios</h1>
                     <h2>Jueves desde las 18:00 </h2>
                     <h2>Viernes desde las 17:30</h2>
-
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <br>
     <hr>
     <br>
-    <div class="formSuggestions" id="formSuggestions">
-        <div class="formInside">
+    <div class="container" id="formSuggestions">
+        <div class="text-center mb-4">
             <h2> ¿Tienes alguna consulta o sugerencia?</h2>
             <h2>¡Escribenos!</h2>
         </div>
-        <br>
         <form action="https://formsubmit.co/middiegodealmagro@gmail.com" method="POST">
-        <div id="form">
-                <div class="row">
-                    <div class="col"> Nombre</div>
-                    <div class="col"> Apellido</div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input name="Nombre" type="text" class="form-control" id="name" placeholder="Escriba su nombre" required autofocus>
                 </div>
-                <div class="row">
-                    <div class="col"> <input name="Nombre" type="text" id="name"
-                            placeholder="Escriba su nombre" required autofocus></div>
-                    <div class="col"> <input name="Apellidos" type="text" id="lastname"
-                            placeholder="Escriba su apellido" required></div>
+                <div class="col-md-6">
+                    <label for="lastname" class="form-label">Apellido</label>
+                    <input name="Apellidos" type="text" class="form-control" id="lastname" placeholder="Escriba su apellido" required>
                 </div>
-                <div class="row">
-                    <div class="col"> Correo Electronico</div>
-                    <div class="col"> Celular</div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input name="Correo Electronico" type="email" class="form-control" id="email" placeholder="Escriba su e-mail" required>
                 </div>
-                <div class="row">
-                    <div class="col"> <input name="Correo Electronico" type="email" id="email"
-                            placeholder="Escriba su e-mail" required></div>
-                    <div class="col"> <input name="Telefono" type="number" id="telephone"
-                            placeholder="Escriba su telefono" required></div>
+                <div class="col-md-6">
+                    <label for="telephone" class="form-label">Celular</label>
+                    <input name="Telefono" type="tel" class="form-control" id="telephone" placeholder="Escriba su teléfono" required>
                 </div>
-                <div class="row">
-                    <div class="col"> Comentarios</div>
-                </div>
-                <div class="row">
-                    <textarea name="Comentarios" id="mitextarea" cols="40" rows="5" style="resize: none; width: 720px;"
-                        placeholder="Ingrese algun comentario o sugerencia..."></textarea>
-                </div>
-                <div class="Submit" style="margin-left: 5cm;">
-                    <input class="mt-5" id="enviar" type="submit" value="Enviar"
-                        style="width: 137px;
-                    height: 48px; margin-left: 2.5cm; border-radius: 9px;"></div>
-
-                <br>
+            </div>
+            <div class="mb-3">
+                <label for="mitextarea" class="form-label">Comentarios</label>
+                <textarea name="Comentarios" class="form-control" id="mitextarea" rows="5" placeholder="Ingrese algún comentario o sugerencia..." style="resize: none;" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary" id="enviar" style="border-radius: 9px;">Enviar</button>
             </div>
         </form>
     </div>
@@ -169,14 +153,15 @@
     <br>
     <br>
     <footer>
-        <div class="bottom">
+        <div class="bottom text-center">
             <div class="col">
                 <br>
                 Fono: +56 9 5321 9670
                 <a href="https://web.facebook.com/MidDA2022">
-                    <img src="/icons/facebook.png" alt="" style="float: right;"> </a>
+                    <img src="/icons/facebook.png" alt="Facebook" class="img-fluid" style="float: right; width: 30px; margin-left: 10px;">
+                </a>
                 <a href="https://wa.me/+56981427835?text=Hola,%20tengo%20una%20consulta!">
-                    <img src="/icons/whatsapp.png" alt="Whatsapp midDa" style="float: right; margin-right: 10px"></a>
+                    <img src="/icons/whatsapp.png" alt="Whatsapp" class="img-fluid" style="float: right; width: 30px;">
                 </a>
                 <br>
                 Correo: correomidda@midda.cl
