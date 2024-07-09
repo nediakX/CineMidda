@@ -1,4 +1,8 @@
-El desarrollo de un proyecto de integración de software es un proceso que implica la combinación de diferentes sistemas y tecnologías para lograr un objetivo común. Para esto se deben desarrollar una serie de etapas desde la definición de los requerimientos hasta la implementación y la puesta en marcha del sistema a elaborar, para ello se necesitará aplicar todos los conocimientos adquiridos a lo largo de la carrera de Analista Programador. De esta manera en esta primera parte del proyecto comprenderá la Recopilación, Análisis y Gestión de Requerimientos que serán vitales para poder elaborar un proyecto semestral.
+Sistema de Reservas Automatizado para MidDA
+
+Objetivo
+
+El objetivo principal del sistema de reservas es automatizar el proceso de programación de reservas para funciones o eventos en el MidDA. Cada persona podrá realizar sus propias reservas, y el administrador validará y gestionará estas reservas.
 
 - Inicio de la pagina web de Reservas CineMidda
   
