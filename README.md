@@ -2,7 +2,7 @@ Sistema de Reservas Automatizado para MidDA
 
 Objetivo
 
-El objetivo principal del sistema de reservas es automatizar el proceso de programación de reservas para funciones o eventos en el MidDA. Cada persona podrá realizar sus propias reservas, y el administrador validará y gestionará estas reservas.
+El objetivo principal del sistema de reservas es automatizar el proceso de reservas y crear funciones o eventos en cine del MidDA. Cada persona podrá realizar sus propias reservas, y el administrador validará y gestionará las reservas.
 
 - Inicio de la pagina web de Reservas CineMidda
   
